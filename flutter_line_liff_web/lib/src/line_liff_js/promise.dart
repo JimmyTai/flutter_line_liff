@@ -1,0 +1,1 @@
+typedef Promise<T> = dynamic;

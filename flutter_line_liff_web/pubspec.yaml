@@ -1,0 +1,30 @@
+name: flutter_line_liff_web
+description: A new Flutter package project.
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ">=2.17.3 <3.0.0"
+  flutter: ">=1.17.0"
+
+flutter:
+  plugin:
+    implements: flutter_line_liff
+    platforms:
+      web:
+        pluginClass: FlutterLineLiffPlugin
+        fileName: flutter_line_liff_web.dart
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+  flutter_line_liff_platform_interface:
+    path: ../flutter_line_liff_platform_interface
+  js: ^0.6.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
