@@ -59,11 +59,11 @@ abstract class Liff {
 
   external void closeWindow();
 
-  external Promise<void> sendMessages(List<Map<String, dynamic>> messages);
+  external Promise<void> sendMessages(dynamic messages);
 
-  external Promise<ShareTargetPickerResult> shareTargetPicker(
-    List<Map<String, dynamic>> messages,
-    ShareTargetPickerOptions? options,
+  external Promise<ShareTargetPickerResult?> shareTargetPicker(
+    dynamic messages,
+    dynamic options,
   );
 
   external Promise<ScanCodeResult> scanCodeV2();

@@ -86,11 +86,19 @@ abstract class FlutterLineLiffPlatform {
 
   void closeWindow();
 
-  Future<void> sendMessages({required List<Map<String, dynamic>> messages});
+  Future<void> sendMessages({required List<Message> messages});
 
-  Future<void> shareTargetPicker({
-    required List<Map<String, dynamic>> messages,
-    ShareTargetPickerOptions? options,
+  Future<void> sendCustomMessages(
+      {required List<Map<String, dynamic>> messages});
+
+  Future<ShareTargetPickerResult?> shareTargetPicker({
+    required List<Message> messages,
+    ShareTargetPickerOptions options,
+  });
+
+  Future<ShareTargetPickerResult?> shareCustomTargetPicker({
+    required List<dynamic> messages,
+    ShareTargetPickerOptions options,
   });
 
   Future<ScanCodeResult> scanCodeV2();

@@ -66,6 +66,20 @@ class FlutterLineLiff {
 
   void closeWindow() => _store.closeWindow();
 
+  Future<void> sendMessages({required List<Message> messages}) =>
+      _store.sendMessages(messages: messages);
+
+  Future<void> sendCustomMessages(
+          {required List<Map<String, dynamic>> messages}) =>
+      _store.sendCustomMessages(messages: messages);
+
+  Future<ShareTargetPickerResult?> shareTargetPicker({
+    required List<Message> messages,
+    ShareTargetPickerOptions options =
+        const ShareTargetPickerOptions(isMultiple: false),
+  }) =>
+      _store.shareTargetPicker(messages: messages, options: options);
+
   Future<ScanCodeResult> scanCodeV2() => _store.scanCodeV2();
 
   Future<ScanCodeResult> scanCode() => _store.scanCode();

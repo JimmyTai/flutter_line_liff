@@ -104,22 +104,54 @@ class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
   void closeWindow() => liff.closeWindow();
 
   @override
-  Future<void> sendMessages({required List<Map<String, dynamic>> messages}) =>
-      promiseToFuture<void>(liff.sendMessages(messages))
-          .then((value) => value)
-          .catchError(
+  Future<void> sendMessages({required List<Message> messages}) =>
+      promiseToFuture<void>(liff.sendMessages(
+        jsify(
+          messages.map((message) => message.toMap()),
+        ),
+      )).then((value) => value).catchError(
             (error, stackTrace) => null,
             test: (error) => error is NullRejectionException,
           );
 
   @override
-  Future<void> shareTargetPicker({
-    required List<Map<String, dynamic>> messages,
-    ShareTargetPickerOptions? options,
+  Future<void> sendCustomMessages(
+          {required List<Map<String, dynamic>> messages}) =>
+      promiseToFuture<void>(
+        liff.sendMessages(
+          jsify(messages),
+        ),
+      ).then((value) => value).catchError(
+            (error, stackTrace) => null,
+            test: (error) => error is NullRejectionException,
+          );
+
+  @override
+  Future<ShareTargetPickerResult?> shareTargetPicker({
+    required List<Message> messages,
+    ShareTargetPickerOptions options =
+        const ShareTargetPickerOptions(isMultiple: false),
   }) =>
-      promiseToFuture<void>(liff.shareTargetPicker(messages, options))
-          .then((value) => value)
-          .catchError(
+      promiseToFuture<ShareTargetPickerResult?>(liff.shareTargetPicker(
+        jsify(
+          messages.map((message) => message.toMap()),
+        ),
+        options.toMap(),
+      )).then((value) => value).catchError(
+            (error, stackTrace) => null,
+            test: (error) => error is NullRejectionException,
+          );
+
+  @override
+  Future<ShareTargetPickerResult?> shareCustomTargetPicker({
+    required List messages,
+    ShareTargetPickerOptions options =
+        const ShareTargetPickerOptions(isMultiple: false),
+  }) =>
+      promiseToFuture<ShareTargetPickerResult?>(liff.shareTargetPicker(
+        jsify(messages),
+        options.toMap(),
+      )).then((value) => value).catchError(
             (error, stackTrace) => null,
             test: (error) => error is NullRejectionException,
           );

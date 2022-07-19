@@ -1,13 +1,13 @@
-import 'package:js/js.dart';
+import '/src/util.dart';
 
-@anonymous
-@JS()
-abstract class Sender {
-  external String? get name;
-  external set name(String? v);
+class Sender {
+  const Sender({this.name, this.iconUrl});
 
-  external String? get iconUrl;
-  external set iconUrl(String? v);
+  final String? name;
+  final String? iconUrl;
 
-  external factory Sender({String? name, String? iconUrl});
+  Map<String, dynamic> toMap() => <String, dynamic>{
+        'name': name,
+        'iconUrl': iconUrl,
+      }.excludeNull();
 }

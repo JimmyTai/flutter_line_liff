@@ -1,52 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:fimber/fimber.dart';
-import 'package:url_strategy/url_strategy.dart';
 
 import 'package:flutter_line_liff/flutter_line_liff.dart';
 
-void main() async {
+import 'widgets/send_message_buttons.dart';
+
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  setPathUrlStrategy();
   Fimber.plantTree(DebugTree());
-  await FlutterLineLiff().init(
-      config: Config(liffId: '1657308274-Xg1va68w'),
-      successCallback: () {
-        Fimber.d('LIFF init success.');
-      },
-      errorCallback: (error) {
-        Fimber.e(
-            'LIFF init error: ${error.name}, ${error.message}, ${error.stack}');
-      });
+  FlutterLineLiff().init(
+    config: Config(liffId: '1657308274-Xg1va68w'),
+    successCallback: () {
+      Fimber.d('LIFF init success.');
+    },
+    errorCallback: (error) {
+      Fimber.e(
+          'LIFF init error: ${error.name}, ${error.message}, ${error.stack}');
+    },
+  );
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/',
-      onGenerateRoute: (route) {
-        Fimber.d('route: $route');
-        return MaterialPageRoute(
-            builder: (_) => const MyHomePage(),
-            settings: RouteSettings(name: route.name));
-      },
+      home: const MyHomePage(),
     );
   }
 }
@@ -59,33 +44,21 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool _isInitSuccess = false;
+  bool _isInitDone = false;
   String? _qrCodeV2Value;
   String? _qrCodeV1Value;
 
   @override
   void initState() {
-    // FlutterLineLiff()
-    //     .init(
-    //         config: Config(liffId: '1657308274-Xg1va68w'),
-    //         successCallback: () {
-    //           Fimber.d('LIFF init success.');
-    //         },
-    //         errorCallback: (error) {
-    //           Fimber.e(
-    //               'LIFF init error: ${error.name}, ${error.message}, ${error.stack}');
-    //         })
-    //     .then((_) {
-    //   Fimber.d('LIFF init done.');
-    //   Future.delayed(const Duration(milliseconds: 500), () {
-    //     setState(() {
-    //       _isInitSuccess = true;
-    //     });
-    //   });
-    // });
+    Fimber.d('message: ${const TemplateMessage(
+      altText: 'This is a buttons template',
+      template: TemplateButtons(text: 'Please select', actions: [
+        URIAction(label: 'Google', uri: 'https://www.google.com'),
+      ]),
+    ).toMap()}');
     FlutterLineLiff().ready.then((_) {
       setState(() {
-        _isInitSuccess = true;
+        _isInitDone = true;
       });
     });
     super.initState();
@@ -97,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Text('Flutter LINE LIFF'),
       ),
-      body: !_isInitSuccess
+      body: !_isInitDone
           ? const Padding(
               padding: EdgeInsets.all(16.0),
               child: Center(child: Text('LIFF init failed')),
@@ -231,6 +204,29 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: const Text('Scan QR code'),
                         ),
                       ],
+                    ),
+                  ),
+                  const SliverToBoxAdapter(child: Text('Send Messages')),
+                  const SliverToBoxAdapter(child: SendMessageButtons()),
+                  SliverToBoxAdapter(
+                    child: TextButton(
+                      onPressed: () {
+                        FlutterLineLiff().shareTargetPicker(
+                          messages: [
+                            const TextMessage(
+                              text: 'Share Target Test',
+                            ),
+                          ],
+                        ).onError((error, stackTrace) {
+                          Fimber.e(
+                              'Send messages with error: $error, $stackTrace');
+                          return null;
+                        }).then((result) {
+                          Fimber.d(
+                              'Share Target result: ${result?.toDebugString()}');
+                        });
+                      },
+                      child: const Text('Share Target'),
                     ),
                   ),
                 ],

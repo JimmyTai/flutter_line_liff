@@ -79,13 +79,27 @@ class MethodChannelFlutterLineLiff extends FlutterLineLiffPlatform {
   void closeWindow() => throw UnimplementedError();
 
   @override
-  Future<void> sendMessages({required List<Map<String, dynamic>> messages}) =>
+  Future<void> sendMessages({required List<Message> messages}) =>
       throw UnimplementedError();
 
   @override
-  Future<void> shareTargetPicker({
-    required List<Map<String, dynamic>> messages,
-    ShareTargetPickerOptions? options,
+  Future<void> sendCustomMessages(
+          {required List<Map<String, dynamic>> messages}) =>
+      throw UnimplementedError();
+
+  @override
+  Future<ShareTargetPickerResult?> shareTargetPicker({
+    required List<Message> messages,
+    ShareTargetPickerOptions options =
+        const ShareTargetPickerOptions(isMultiple: false),
+  }) =>
+      throw UnimplementedError();
+
+  @override
+  Future<ShareTargetPickerResult?> shareCustomTargetPicker({
+    required List messages,
+    ShareTargetPickerOptions options =
+        const ShareTargetPickerOptions(isMultiple: false),
   }) =>
       throw UnimplementedError();
 

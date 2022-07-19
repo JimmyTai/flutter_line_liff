@@ -1,12 +1,13 @@
-import 'package:js/js.dart';
+import '/src/util.dart';
 
-@anonymous
-@JS()
-abstract class ShareTargetPickerOptions {
-  external bool? get isMultiple;
-  external set isMultiple(bool? v);
-
-  external factory ShareTargetPickerOptions({
-    bool? isMultiple,
+class ShareTargetPickerOptions {
+  const ShareTargetPickerOptions({
+    required this.isMultiple,
   });
+
+  final bool isMultiple;
+
+  Map<String, dynamic> toMap() => <String, dynamic>{
+        'isMultiple': isMultiple,
+      }.excludeNull();
 }

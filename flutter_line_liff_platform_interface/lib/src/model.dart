@@ -11,3 +11,4 @@ export 'model/profile.dart';
 export 'model/friendship.dart';
 export 'model/open_window.dart';
 export 'model/camera.dart';
+export 'model/liff_message.dart';
