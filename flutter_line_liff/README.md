@@ -1,5 +1,7 @@
 # flutter_line_liff
 
+[![pub package](https://img.shields.io/pub/v/flutter_line_liff.svg)](https://pub.dev/packages/flutter_line_liff)
+
 This Flutter plugin is developed for Flutter Web to provide ability to use LINE LIFF SDK.
 
 **- Only Support Web Platform**

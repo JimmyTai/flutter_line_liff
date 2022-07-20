@@ -75,21 +75,21 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.0.2"
   flutter_line_liff_platform_interface:
     dependency: transitive
     description:
       name: flutter_line_liff_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.1"
+    version: "0.0.2"
   flutter_line_liff_web:
     dependency: transitive
     description:
       name: flutter_line_liff_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.1"
+    version: "0.0.2"
   flutter_lints:
     dependency: "direct dev"
     description:
