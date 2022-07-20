@@ -9,7 +9,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Fimber.plantTree(DebugTree());
   FlutterLineLiff().init(
-    config: Config(liffId: '1657308274-Xg1va68w'),
+    config: Config(liffId: 'xxxxxxxxxxxx'),
     successCallback: () {
       Fimber.d('LIFF init success.');
     },
