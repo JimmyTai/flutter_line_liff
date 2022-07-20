@@ -16,10 +16,8 @@ flutter:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_line_liff_platform_interface: 
-    path: ../flutter_line_liff_platform_interface
-  flutter_line_liff_web: 
-    path: ../flutter_line_liff_web
+  flutter_line_liff_platform_interface: ^0.0.1
+  flutter_line_liff_web: ^0.0.1
 
 dev_dependencies:
   flutter_driver:

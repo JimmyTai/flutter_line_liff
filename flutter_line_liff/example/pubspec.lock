@@ -79,16 +79,16 @@ packages:
   flutter_line_liff_platform_interface:
     dependency: transitive
     description:
-      path: "../../flutter_line_liff_platform_interface"
-      relative: true
-    source: path
+      name: flutter_line_liff_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "0.0.1"
   flutter_line_liff_web:
     dependency: transitive
     description:
-      path: "../../flutter_line_liff_web"
-      relative: true
-    source: path
+      name: flutter_line_liff_web
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "0.0.1"
   flutter_lints:
     dependency: "direct dev"
