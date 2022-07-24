@@ -1,3 +1,4 @@
+import 'package:example/widgets/liff_info.dart';
 import 'package:flutter/material.dart';
 import 'package:fimber/fimber.dart';
 
@@ -73,27 +74,14 @@ class _MyHomePageState extends State<MyHomePage> {
       body: !_isInitDone
           ? const Padding(
               padding: EdgeInsets.all(16.0),
-              child: Center(child: Text('LIFF init failed')),
+              child: Center(child: Text('Wait for LIFF SDK initialize.')),
             )
           : Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: CustomScrollView(
                 slivers: [
-                  SliverToBoxAdapter(
-                    child: Text(
-                      'ID: ${FlutterLineLiff().id}\n\n'
-                      'OS: ${FlutterLineLiff().os}\n\n'
-                      'Language: ${FlutterLineLiff().language}\n\n'
-                      'Version: ${FlutterLineLiff().version}\n\n'
-                      'LINE Version: ${FlutterLineLiff().lineVersion ?? 'null'}\n\n'
-                      'Context: ${FlutterLineLiff().context?.toDebugString()}\n\n'
-                      'Is in Client: ${FlutterLineLiff().isInClient}\n\n'
-                      'Is Logged In: ${FlutterLineLiff().isLoggedIn}\n\n'
-                      'Is API Available: ${FlutterLineLiff().isApiAvailable(apiName: 'shareTargetPicker')}\n\n'
-                      'Access Token: ${FlutterLineLiff().getAccessToken()}\n\n'
-                      'ID Token: ${FlutterLineLiff().getIDToken()}\n\n'
-                      'Decoded ID Token: ${FlutterLineLiff().getDecodedIDToken()?.toDebugString()}\n\n',
-                    ),
+                  const SliverToBoxAdapter(
+                    child: LiffInfo(),
                   ),
                   SliverToBoxAdapter(
                     child: FutureBuilder<Profile>(
@@ -122,6 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           FlutterLineLiff().isLoggedIn ? 'logout' : 'login'),
                     ),
                   ),
+
+                  /// Permission section.
                   SliverToBoxAdapter(
                     child: TextButton(
                       onPressed: () {
@@ -160,6 +150,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: const Text('Close Window'),
                     ),
                   ),
+
+                  /// Scan QRcode section.
                   SliverToBoxAdapter(
                     child: Column(
                       children: [
@@ -183,31 +175,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     ),
                   ),
-                  SliverToBoxAdapter(
-                    child: Column(
-                      children: [
-                        Text('QR Code value: ${_qrCodeV1Value ?? ''}'),
-                        TextButton(
-                          onPressed: () {
-                            setState(() {
-                              _qrCodeV1Value = null;
-                            });
-                            FlutterLineLiff().scanCode().then((result) {
-                              setState(() {
-                                _qrCodeV1Value = result.value;
-                              });
-                            }).onError((error, stackTrace) {
-                              Fimber.e(
-                                  'Scan QR code with error: $error, $stackTrace');
-                            });
-                          },
-                          child: const Text('Scan QR code'),
-                        ),
-                      ],
-                    ),
-                  ),
+
+                  /// Send Messages section.
                   const SliverToBoxAdapter(child: Text('Send Messages')),
                   const SliverToBoxAdapter(child: SendMessageButtons()),
+
+                  /// ShareTarget section.
                   SliverToBoxAdapter(
                     child: TextButton(
                       onPressed: () {

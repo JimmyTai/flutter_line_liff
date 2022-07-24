@@ -10,9 +10,19 @@ This Flutter plugin is developed for Flutter Web to provide ability to use LINE 
 
 To use this plugin, add  `flutter_line_liff`  as a  [dependency in your pubspec.yaml file](https://flutter.dev/docs/development/platform-integration/platform-channels).
 
+### Add Javascript LINE LIFF SDK
+
+Add Javascript dependency in index.html.
+```html
+<head>
+	<script  charset="utf-8"  src="https://static.line-scdn.net/liff/edge/versions/2.20.3/sdk.js"></script>
+	<!-- your other html flags -->
+</head>
+```
+
 ### Initialize LIFF SDK
 
-Initialize `FlutterLineLiff` in main function.
+Initialize `FlutterLineLiff` in main function. **Don't initial in Widget**.
 ```dart
 FlutterLineLiff().init(
 	config: Config(liffId: '{YOUR_LIFF_ID}'),
@@ -121,40 +131,40 @@ FlutterLineLiff().logout();
 
 ### Permission
 
-#### - Query
+- **Query**
 
-Verifies whether the user agrees to grant the specified permission.
-```dart
-final PermissionStatus status = FlutterLineLiff().permission.query(Permission.xxxx);
-```
+    Verifies whether the user agrees to grant the specified permission.
+    ```dart
+    final PermissionStatus status = FlutterLineLiff().permission.query(Permission.xxxx);
+    ```
 
-#### - Request All
+- **Request All**
 
-Displays the "Verification screen" for the permissions requested by **LINE MINI Apps**.
-```dart
-FlutterLineLiff().permission.requestAll();
-```
+    Displays the "Verification screen" for the permissions requested by **LINE MINI Apps**.
+    ```dart
+    FlutterLineLiff().permission.requestAll();
+    ```
 
 ### Window
 
-#### - Open Window
+- **Open Window**
 
-Opens the specified URL in the LINE's in-app browser or external browser.
-```dart
-FlutterLineLiff().openWindow(
-	params: OpenWindowParams(
-		url: 'xxxxxx',
-		external: false,
-	),
-);
-```
+    Opens the specified URL in the LINE's in-app browser or external browser.
+    ```dart
+    FlutterLineLiff().openWindow(
+    	params: OpenWindowParams(
+    		url: 'xxxxxx',
+    		external: false,
+    	),
+    );
+    ```
 
-#### - Close Window
+- **Close Window**
 
-Closes the LIFF app.
-```dart
-FlutterLineLiff().closeWindow();
-```
+    Closes the LIFF app.
+    ```dart
+    FlutterLineLiff().closeWindow();
+    ```
 
 ### Camera
 
@@ -166,43 +176,65 @@ final ScanCodeResult result = await FlutterLineLiff().scanCodeV2();
 
 ### Message
 
-#### - Send Messages
+-  **Send Messages**
 
-Sends messages on behalf of the user to the chat screen where the LIFF app is opened. This feature is only available in a LIFF app launched from a one-on-one chat room.
-```dart
-FlutterLineLiff().sendMessages(messages: [
-	TextMessage(), 
-	ImageMessage(),
-	VideoMessage(),
-	AudioMessage(),
-	LocationMessage(),
-	StickerMessage(),
-	TemplateMessage(),
-	FlexMessage(),
-])
-```
+    Sends messages on behalf of the user to the chat screen where the LIFF app is opened. This feature is only available in a LIFF app launched from a one-on-one chat room.
+    ```dart
+    FlutterLineLiff().sendMessages(messages: [
+    	TextMessage(), 
+    	ImageMessage(),
+    	VideoMessage(),
+    	AudioMessage(),
+    	LocationMessage(),
+    	StickerMessage(),
+    	TemplateMessage(),
+    	FlexMessage(),
+    ])
+    ```
+    
+    `sendCustomMessages` could pass raw message **Object** to LIFF SDK.
+    ```dart
+    FlutterLineLiff().sendCustomMessages(
+    	messages: [
+    		{
+    			"type": "text",
+    			"text": "Hello, World!"
+    		}
+    	],
+    )
+    ```
 
-`sendCustomMessages` could pass raw message **Object** to LIFF SDK.
-```dart
-FlutterLineLiff().sendCustomMessages(
-	messages: [
-		{
-			"type": "text",
-			"text": "Hello, World!"
-		}
-	],
-)
-```
+- **ShareTargetPicker**
 
-#### - ShareTargetPicker
+    Displays the target picker (screen for selecting a group or friend) and sends the message created by the developer to the selected target. This message appears to your group or friends as if you had sent it.
+    ```dart
+    final ShareTargetResult? result = await FlutterLineLiff().shareTargetPicker(
+    	messages: [
+    		const  TextMessage(
+    			text: 'Share Target Test',
+    		),
+    	],
+    );
+    ```
 
-Displays the target picker (screen for selecting a group or friend) and sends the message created by the developer to the selected target. This message appears to your group or friends as if you had sent it.
-```dart
-final ShareTargetResult? result = await FlutterLineLiff().shareTargetPicker(
-	messages: [
-		const  TextMessage(
-			text: 'Share Target Test',
-		),
-	],
-);
-```
+### Permanent Link
+
+- **Create URL**
+
+    ```dart
+    // Get the permanent link of any page in the LIFF app.
+    final permanentUrl = await FlutterLineLiff().createUrlBy(url: '{Your url}')
+    
+    // Gets the permanent link for the current page.
+    final permanentUrl = await FlutterLineLiff().createUrl();
+    ```
+    
+- **Extra Query Parameters**
+
+    ```dart
+    // You can add any query parameter to a permanent link on the current page.
+    // 
+    // Each time you execute  `liff.permanentLink.setExtraQueryParam()`, 
+    // the query parameters added last time are overwritten.
+    FlutterLineLiff().setExtraQueryParam(paramsToAdd: 'name1=value1&name2=value2');
+    ```
