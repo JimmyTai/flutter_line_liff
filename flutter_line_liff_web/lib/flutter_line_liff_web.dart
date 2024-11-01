@@ -3,14 +3,13 @@ library flutter_line_liff_web;
 import 'dart:async';
 import 'dart:js_util';
 
-import 'package:js/js.dart';
-
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:flutter_line_liff_platform_interface/flutter_line_liff_platform_interface.dart';
 
 import 'src/line_liff_js.dart';
 
 part 'src/permission_web.dart';
+
 part 'src/permanent_link_web.dart';
 
 class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
