@@ -1,11 +1,11 @@
 name: flutter_line_liff_web
 description: A Flutter package which support LINE LIFF SDK on Dart.
-version: 0.0.3
+version: 0.0.4
 homepage: https://www.github.com/JimmyTai/flutter_line_liff
 
 environment:
-  sdk: ">=2.16.0 <3.0.0"
-  flutter: ">=2.10.0"
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.12.0"
 
 flutter:
   plugin:

@@ -1,0 +1,5 @@
+name: flutter_line_liff
+
+packages:
+  - packages/**
+  

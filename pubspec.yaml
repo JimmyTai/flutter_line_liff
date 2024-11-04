@@ -1,0 +1,7 @@
+name: flutter_line_liff
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dev_dependencies:
+  melos: ^6.2.0
