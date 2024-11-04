@@ -1,6 +1,6 @@
 name: flutter_line_liff_platform_interface
 description: A Flutter package which define LINE LIFF SDK properties and methods.
-version: 0.0.2
+version: 0.0.3
 homepage: https://www.github.com/JimmyTai/flutter_line_liff
 
 environment:
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  js: ^0.6.4
+  js: ^0.7.1
 
 dev_dependencies:
   flutter_test:
