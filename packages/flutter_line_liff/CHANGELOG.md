@@ -1,4 +1,4 @@
-## 0.0.4
+## 0.1.0
 
 * Using Melos for mono-repo management.
 * Updates flutter_line_liff_platform_interface to ^0.0.3.

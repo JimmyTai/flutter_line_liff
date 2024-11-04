@@ -1,4 +1,4 @@
-## 0.0.4
+## 0.1.0
 
 * Using Melos for mono-repo management.
 * Updates js lib to ^0.7.1
