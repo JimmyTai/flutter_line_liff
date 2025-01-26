@@ -1,13 +1,5 @@
-import 'package:flutter/services.dart';
-import 'package:flutter_line_liff_platform_interface/flutter_line_liff_platform_interface.dart';
+import 'flutter_line_liff_platform_interface.dart';
 
-const MethodChannel _kChannel =
-    MethodChannel('plugins.jimmytai.dev/flutter_line_liff');
-
-/// Wraps NSUserDefaults (on iOS) and SharedPreferences (on Android), providing
-/// a persistent store for simple data.
-///
-/// Data is persisted to disk asynchronously.
 class MethodChannelFlutterLineLiff extends FlutterLineLiffPlatform {
   @override
   String? get id => throw UnimplementedError();
@@ -60,7 +52,7 @@ class MethodChannelFlutterLineLiff extends FlutterLineLiffPlatform {
   String? getIDToken() => throw UnimplementedError();
 
   @override
-  JWTPayload? getDecodedIDToken() => throw UnimplementedError();
+  JwtPayload? getDecodedIDToken() => throw UnimplementedError();
 
   @override
   PermissionMethodsPlatform get permission => throw UnimplementedError();

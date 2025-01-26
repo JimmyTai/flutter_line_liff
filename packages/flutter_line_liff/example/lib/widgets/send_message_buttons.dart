@@ -5,7 +5,7 @@ import 'package:flutter_line_liff/flutter_line_liff.dart';
 import '../messages.dart';
 
 class SendMessageButtons extends StatefulWidget {
-  const SendMessageButtons({Key? key}) : super(key: key);
+  const SendMessageButtons({super.key});
 
   @override
   State<SendMessageButtons> createState() => _SendMessageButtonsState();

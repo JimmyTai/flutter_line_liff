@@ -1,8 +1,9 @@
-library flutter_line_liff;
+library;
 
 import 'package:flutter_line_liff_platform_interface/flutter_line_liff_platform_interface.dart';
 
-export 'package:flutter_line_liff_platform_interface/src/model.dart';
+export 'package:flutter_line_liff_platform_interface/src/models/models.dart';
+export 'package:flutter_line_liff_platform_interface/src/types.dart';
 
 class FlutterLineLiff {
   static const FlutterLineLiff _instance = FlutterLineLiff._();
@@ -53,7 +54,7 @@ class FlutterLineLiff {
 
   String? getIDToken() => _store.getIDToken();
 
-  JWTPayload? getDecodedIDToken() => _store.getDecodedIDToken();
+  JwtPayload? getDecodedIDToken() => _store.getDecodedIDToken();
 
   PermissionMethodsPlatform get permission => _store.permission;
 

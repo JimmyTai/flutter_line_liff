@@ -1,16 +1,24 @@
-library flutter_line_liff_web;
+library;
 
 import 'dart:async';
+import 'dart:js_interop';
 import 'dart:js_util';
 
-import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:flutter_line_liff_platform_interface/flutter_line_liff_platform_interface.dart';
 
-import 'src/line_liff_js.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
-part 'src/permission_web.dart';
+import 'src/mapper/mapper.dart';
+import 'src/js/js.dart' as js;
+import 'src/permanent_link_web.dart';
+import 'src/permission_methods_web.dart';
+import 'src/utils.dart';
 
-part 'src/permanent_link_web.dart';
+export 'src/permanent_link_web.dart';
+export 'src/permission_methods_web.dart';
+
+final PermissionMethodsPlatform _permissionMethods = PermissionMethodsWeb();
+final PermanentLinkPlatform _permanentLink = PermanentLinkWeb();
 
 class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
   static void registerWith(Registrar? registrar) {
@@ -18,12 +26,11 @@ class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
   }
 
   @override
-  String? get id => liff.id;
+  String? get id => js.liff.id?.toDart;
 
   @override
-  Future<void> get ready => promiseToFuture(liff.ready)
-      .then((value) => value)
-      .catchError((error, stackTrace) => null,
+  Future<void> get ready =>
+      js.liff.ready.toDart.then((_) {}).catchError((error, stackTrace) => null,
           test: (error) => error is NullRejectionException);
 
   @override
@@ -31,97 +38,109 @@ class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
     required Config config,
     SuccessCallback? successCallback,
     ErrorCallback? errorCallback,
-  }) =>
-      promiseToFuture(liff.init(
-        config,
-        allowInterop(() {
-          successCallback?.call();
-        }),
-        allowInterop((error) {
-          errorCallback?.call(error);
-        }),
-      )).then((value) => value).catchError(
-            (error, stackTrace) => null,
-            test: ((error) => error is NullRejectionException),
-          );
+  }) {
+    void onSuccess() {
+      successCallback?.call();
+    }
+
+    void onError(js.JSError error) {
+      errorCallback?.call(error.toDart);
+    }
+
+    return js.liff
+        .init(
+          config.toJS,
+          onSuccess.toJS,
+          onError.toJS,
+        )
+        .toDart
+        .ignoreResult();
+  }
 
   @override
-  String? get os => liff.getOS();
+  String? get os => js.liff.getOS()?.toDart;
 
   @override
-  String get language => liff.getLanguage();
+  String get language => js.liff.getLanguage().toDart;
 
   @override
-  String get version => liff.getVersion();
+  String get version => js.liff.getVersion().toDart;
 
   @override
-  String? get lineVersion => liff.getLineVersion();
+  String? get lineVersion => js.liff.getLineVersion()?.toDart;
 
   @override
-  Context? get context => liff.getContext();
+  Context? get context => js.liff.getContext()?.toDart;
 
   @override
-  bool get isInClient => liff.isInClient();
+  bool get isInClient => js.liff.isInClient().toDart;
 
   @override
-  bool get isLoggedIn => liff.isLoggedIn();
+  bool get isLoggedIn => js.liff.isLoggedIn().toDart;
 
   @override
   bool isApiAvailable({required String apiName}) =>
-      liff.isApiAvailable(apiName);
+      js.liff.isApiAvailable(apiName.toJS).toDart;
 
   @override
-  void login({LoginConfig? config}) => liff.login(config);
+  void login({LoginConfig? config}) => js.liff.login(config?.toJS);
 
   @override
-  void logout() => liff.logout();
+  void logout() => js.liff.logout();
 
   @override
-  String? getAccessToken() => liff.getAccessToken();
+  String? getAccessToken() => js.liff.getAccessToken()?.toDart;
 
   @override
-  String? getIDToken() => liff.getIDToken();
+  String? getIDToken() => js.liff.getIDToken()?.toDart;
 
   @override
-  JWTPayload? getDecodedIDToken() => liff.getDecodedIDToken();
+  JwtPayload? getDecodedIDToken() => js.liff.getDecodedIDToken()?.toDart;
 
   @override
-  PermissionMethodsPlatform get permission => permissionPlugin;
+  PermissionMethodsPlatform get permission => _permissionMethods;
 
   @override
-  Future<Profile> get profile => promiseToFuture<Profile>(liff.getProfile());
+  Future<Profile> get profile =>
+      js.liff.getProfile().toDart.then((profile) => profile.toDart);
 
   @override
   Future<Friendship> get friendship =>
-      promiseToFuture<Friendship>(liff.getFriendship());
+      js.liff.getFriendship().toDart.then((friendship) => friendship.toDart);
 
   @override
   void openWindow({required OpenWindowParams params}) =>
-      liff.openWindow(params);
+      js.liff.openWindow(params.toJS);
 
   @override
-  void closeWindow() => liff.closeWindow();
+  void closeWindow() => js.liff.closeWindow();
 
   @override
-  Future<void> sendMessages({required List<Message> messages}) =>
-      promiseToFuture<void>(liff.sendMessages(
+  Future<void> sendMessages({required List<Message> messages}) => js.liff
+      .sendMessages(
         jsify(
           messages.map((message) => message.toMap()),
         ),
-      )).then((value) => value).catchError(
-            (error, stackTrace) => null,
-            test: (error) => error is NullRejectionException,
-          );
+      )
+      .toDart
+      .ignoreResult()
+      .catchError(
+        (error, stackTrace) {},
+        test: (error) => error is NullRejectionException,
+      );
 
   @override
-  Future<void> sendCustomMessages(
-          {required List<Map<String, dynamic>> messages}) =>
-      promiseToFuture<void>(
-        liff.sendMessages(
-          jsify(messages),
-        ),
-      ).then((value) => value).catchError(
-            (error, stackTrace) => null,
+  Future<void> sendCustomMessages({
+    required List<Map<String, dynamic>> messages,
+  }) =>
+      js.liff
+          .sendMessages(
+            jsify(messages),
+          )
+          .toDart
+          .ignoreResult()
+          .catchError(
+            (error, stackTrace) {},
             test: (error) => error is NullRejectionException,
           );
 
@@ -131,15 +150,15 @@ class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
     ShareTargetPickerOptions options =
         const ShareTargetPickerOptions(isMultiple: false),
   }) =>
-      promiseToFuture<ShareTargetPickerResult?>(liff.shareTargetPicker(
-        jsify(
-          messages.map((message) => message.toMap()),
-        ),
-        options.toMap(),
-      )).then((value) => value).catchError(
-            (error, stackTrace) => null,
-            test: (error) => error is NullRejectionException,
-          );
+      js.liff
+          .shareTargetPicker(
+            jsify(
+              messages.map((message) => message.toMap()),
+            ),
+            options.toJS,
+          )
+          .toDart
+          .then((result) => result?.toDart);
 
   @override
   Future<ShareTargetPickerResult?> shareCustomTargetPicker({
@@ -147,22 +166,19 @@ class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
     ShareTargetPickerOptions options =
         const ShareTargetPickerOptions(isMultiple: false),
   }) =>
-      promiseToFuture<ShareTargetPickerResult?>(liff.shareTargetPicker(
-        jsify(messages),
-        options.toMap(),
-      )).then((value) => value).catchError(
-            (error, stackTrace) => null,
-            test: (error) => error is NullRejectionException,
-          );
+      js.liff
+          .shareTargetPicker(jsify(messages), options.toJS)
+          .toDart
+          .then((result) => result?.toDart);
 
   @override
   Future<ScanCodeResult> scanCodeV2() =>
-      promiseToFuture<ScanCodeResult>(liff.scanCodeV2());
+      js.liff.scanCodeV2().toDart.then((result) => result.toDart);
 
   @override
   Future<ScanCodeResult> scanCode() =>
-      promiseToFuture<ScanCodeResult>(liff.scanCode());
+      js.liff.scanCode().toDart.then((result) => result.toDart);
 
   @override
-  PermanentLinkPlatform get permanentLink => permanentLinkPlugin;
+  PermanentLinkPlatform get permanentLink => _permanentLink;
 }

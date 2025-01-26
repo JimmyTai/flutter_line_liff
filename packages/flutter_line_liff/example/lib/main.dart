@@ -1,29 +1,35 @@
-import 'package:example/widgets/liff_info.dart';
-import 'package:flutter/material.dart';
+import 'package:fconsole/fconsole.dart';
 import 'package:fimber/fimber.dart';
-
+import 'package:flutter/material.dart';
 import 'package:flutter_line_liff/flutter_line_liff.dart';
 
+import 'widgets/liff_info.dart';
 import 'widgets/send_message_buttons.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  Fimber.plantTree(DebugTree());
-  FlutterLineLiff().init(
-    config: Config(liffId: 'xxxxxxxxxxxx'),
-    successCallback: () {
-      Fimber.d('LIFF init success.');
-    },
-    errorCallback: (error) {
-      Fimber.e(
-          'LIFF init error: ${error.name}, ${error.message}, ${error.stack}');
+  runAppWithFConsole(
+    const MyApp(),
+    beforeRun: () async {
+      WidgetsFlutterBinding.ensureInitialized();
+      Fimber.plantTree(DebugTree());
+      Fimber.d('try to initialize line-liff SDK');
+      Fimber.d('LINE LIFF ID: ${FlutterLineLiff().id}');
+      FlutterLineLiff().init(
+        config: Config(liffId: 'xxxxxxxxxxxx'),
+        successCallback: () {
+          Fimber.d('LIFF init success.');
+        },
+        errorCallback: (error) {
+          Fimber.e(
+              'LIFF init error: ${error.name}, ${error.message}, ${error.stack}');
+        },
+      );
     },
   );
-  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +44,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -86,15 +92,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   SliverToBoxAdapter(
                     child: FutureBuilder<Profile>(
                       future: FlutterLineLiff().profile,
-                      builder: (context, snapshot) => Text(
-                          'Profile: ${snapshot.data?.toDebugString()}\n\n'),
+                      builder: (context, snapshot) =>
+                          Text('Profile: ${snapshot.data}\n\n'),
                     ),
                   ),
                   SliverToBoxAdapter(
                     child: FutureBuilder<Friendship>(
                       future: FlutterLineLiff().friendship,
-                      builder: (context, snapshot) => Text(
-                          'Friendship: ${snapshot.data?.toDebugString()}\n\n'),
+                      builder: (context, snapshot) =>
+                          Text('Friendship: ${snapshot.data}\n\n'),
                     ),
                   ),
                   SliverToBoxAdapter(
@@ -117,10 +123,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       onPressed: () {
                         FlutterLineLiff()
                             .permission
-                            .query(Permission.chatMessageWrite)
+                            .query(permission: Permission.chatMessageWrite)
                             .then((status) {
-                          Fimber.d(
-                              'Permission status: ${status.toDebugString()}');
+                          Fimber.d('Permission status: $status');
                         }).onError((error, stackTrace) {
                           Fimber.e(
                               'Query Permission status with error: $error, $stackTrace');
@@ -195,8 +200,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               'Send messages with error: $error, $stackTrace');
                           return null;
                         }).then((result) {
-                          Fimber.d(
-                              'Share Target result: ${result?.toDebugString()}');
+                          Fimber.d('Share Target result: $result');
                         });
                       },
                       child: const Text('Share Target'),
