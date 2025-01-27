@@ -26,7 +26,7 @@ class Context with _$Context {
     required String endpointUrl,
 
     /// allow viewType = 'compact'|'tall'|'full'|'cover'|'frame'|'new full'|'full flex'
-    required String viewType,
+    String? viewType,
     String? accessTokenHash,
 
     /// allow permanentLinkPattern = 'concat'

@@ -6,7 +6,7 @@ class LiffInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final FlutterLineLiff liff = FlutterLineLiff();
+    final FlutterLineLiff liff = FlutterLineLiff.instance;
     return Text(
       'ID: ${liff.id}\n\n'
       'OS: ${liff.os}\n\n'

@@ -28,7 +28,7 @@ extension type JSContext._(JSObject _) implements JSObject {
   external JSString get endpointUrl;
 
   /// allow viewType = 'compact'|'tall'|'full'|'cover'|'frame'|'new full'|'full flex'
-  external JSString get viewType;
+  external JSString? get viewType;
 
   external JSString? get accessTokenHash;
 

@@ -5,7 +5,7 @@ import 'package:flutter_line_liff_platform_interface/flutter_line_liff_platform_
 import '../js/js.dart';
 
 extension JSErrorToLiffError on JSError {
-  LiffError get toDart => LiffError(
+  LiffException get toDart => LiffException(
         name: name.toDart,
         message: message.toDart,
         stack: stack?.toDart,

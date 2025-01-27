@@ -3,10 +3,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'error.freezed.dart';
 
 @freezed
-class LiffError with _$LiffError {
-  const factory LiffError({
+class LiffException with _$LiffException implements Exception {
+  const factory LiffException({
     required String name,
     required String message,
     String? stack,
-  }) = _LiffError;
+  }) = _LiffException;
 }

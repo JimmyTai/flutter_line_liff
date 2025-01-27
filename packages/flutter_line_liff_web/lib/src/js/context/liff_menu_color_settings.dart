@@ -28,7 +28,7 @@ extension type JSLiffMenuColorSetting._(JSObject _) implements JSObject {
 
   external JSString get progressBackgroundColor;
 
-  external JSString get titleButtonAreaBackgroundColor;
+  external JSString? get titleButtonAreaBackgroundColor;
 
-  external JSString get titleButtonAreaBorderColor;
+  external JSString? get titleButtonAreaBorderColor;
 }

@@ -23,7 +23,7 @@ extension JSContextToContext on JSContext {
         groupId: groupId?.toDart,
         userId: userId?.toDart,
         endpointUrl: endpointUrl.toDart,
-        viewType: viewType.toDart,
+        viewType: viewType?.toDart,
         accessTokenHash: accessTokenHash?.toDart,
         permanentLinkPattern: permanentLinkPattern.toDart,
         tid: tid?.toDart,

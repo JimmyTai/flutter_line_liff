@@ -30,8 +30,7 @@ class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
 
   @override
   Future<void> get ready =>
-      js.liff.ready.toDart.then((_) {}).catchError((error, stackTrace) => null,
-          test: (error) => error is NullRejectionException);
+      js.liff.ready.toDart.ignoreResult().handleLiffException();
 
   @override
   Future<void> init({
@@ -54,7 +53,8 @@ class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
           onError.toJS,
         )
         .toDart
-        .ignoreResult();
+        .ignoreResult()
+        .catchError((_) {});
   }
 
   @override
@@ -101,12 +101,16 @@ class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
   PermissionMethodsPlatform get permission => _permissionMethods;
 
   @override
-  Future<Profile> get profile =>
-      js.liff.getProfile().toDart.then((profile) => profile.toDart);
+  Future<Profile> get profile => js.liff.getProfile().toDart.then((profile) {
+        return profile.toDart;
+      }).handleLiffException();
 
   @override
-  Future<Friendship> get friendship =>
-      js.liff.getFriendship().toDart.then((friendship) => friendship.toDart);
+  Future<Friendship> get friendship => js.liff
+      .getFriendship()
+      .toDart
+      .then((friendship) => friendship.toDart)
+      .handleLiffException();
 
   @override
   void openWindow({required OpenWindowParams params}) =>
@@ -124,10 +128,7 @@ class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
       )
       .toDart
       .ignoreResult()
-      .catchError(
-        (error, stackTrace) {},
-        test: (error) => error is NullRejectionException,
-      );
+      .handleLiffException();
 
   @override
   Future<void> sendCustomMessages({
@@ -139,10 +140,7 @@ class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
           )
           .toDart
           .ignoreResult()
-          .catchError(
-            (error, stackTrace) {},
-            test: (error) => error is NullRejectionException,
-          );
+          .handleLiffException();
 
   @override
   Future<ShareTargetPickerResult?> shareTargetPicker({
@@ -158,26 +156,34 @@ class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
             options.toJS,
           )
           .toDart
-          .then((result) => result?.toDart);
+          .then((result) => result?.toDart)
+          .handleLiffException();
 
   @override
   Future<ShareTargetPickerResult?> shareCustomTargetPicker({
-    required List messages,
+    required List<Map<String, dynamic>> messages,
     ShareTargetPickerOptions options =
         const ShareTargetPickerOptions(isMultiple: false),
   }) =>
       js.liff
           .shareTargetPicker(jsify(messages), options.toJS)
           .toDart
-          .then((result) => result?.toDart);
+          .then((result) => result?.toDart)
+          .handleLiffException();
 
   @override
-  Future<ScanCodeResult> scanCodeV2() =>
-      js.liff.scanCodeV2().toDart.then((result) => result.toDart);
+  Future<ScanCodeResult> scanCodeV2() => js.liff
+      .scanCodeV2()
+      .toDart
+      .then((result) => result.toDart)
+      .handleLiffException();
 
   @override
-  Future<ScanCodeResult> scanCode() =>
-      js.liff.scanCode().toDart.then((result) => result.toDart);
+  Future<ScanCodeResult> scanCode() => js.liff
+      .scanCode()
+      .toDart
+      .then((result) => result.toDart)
+      .handleLiffException();
 
   @override
   PermanentLinkPlatform get permanentLink => _permanentLink;

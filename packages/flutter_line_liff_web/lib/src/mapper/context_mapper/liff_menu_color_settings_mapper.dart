@@ -25,7 +25,7 @@ extension JSLiffMenuColorSettingToLiffMenuColorSetting
         titleBackgroundColor: titleBackgroundColor.toDart,
         progressBarColor: progressBarColor.toDart,
         progressBackgroundColor: progressBackgroundColor.toDart,
-        titleButtonAreaBackgroundColor: titleButtonAreaBackgroundColor.toDart,
-        titleButtonAreaBorderColor: titleButtonAreaBorderColor.toDart,
+        titleButtonAreaBackgroundColor: titleButtonAreaBackgroundColor?.toDart ?? '',
+        titleButtonAreaBorderColor: titleButtonAreaBorderColor?.toDart ?? '',
       );
 }

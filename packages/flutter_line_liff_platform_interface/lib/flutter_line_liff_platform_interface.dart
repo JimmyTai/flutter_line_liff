@@ -86,8 +86,9 @@ abstract class FlutterLineLiffPlatform {
 
   Future<void> sendMessages({required List<Message> messages});
 
-  Future<void> sendCustomMessages(
-      {required List<Map<String, dynamic>> messages});
+  Future<void> sendCustomMessages({
+    required List<Map<String, dynamic>> messages,
+  });
 
   Future<ShareTargetPickerResult?> shareTargetPicker({
     required List<Message> messages,
@@ -95,7 +96,7 @@ abstract class FlutterLineLiffPlatform {
   });
 
   Future<ShareTargetPickerResult?> shareCustomTargetPicker({
-    required List<dynamic> messages,
+    required List<Map<String, dynamic>> messages,
     ShareTargetPickerOptions options,
   });
 

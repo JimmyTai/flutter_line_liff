@@ -25,7 +25,7 @@ mixin _$Context {
   String get endpointUrl => throw _privateConstructorUsedError;
 
   /// allow viewType = 'compact'|'tall'|'full'|'cover'|'frame'|'new full'|'full flex'
-  String get viewType => throw _privateConstructorUsedError;
+  String? get viewType => throw _privateConstructorUsedError;
   String? get accessTokenHash => throw _privateConstructorUsedError;
 
   /// allow permanentLinkPattern = 'concat'
@@ -60,7 +60,7 @@ abstract class $ContextCopyWith<$Res> {
       String? groupId,
       String? userId,
       String endpointUrl,
-      String viewType,
+      String? viewType,
       String? accessTokenHash,
       String permanentLinkPattern,
       String? tid,
@@ -102,7 +102,7 @@ class _$ContextCopyWithImpl<$Res, $Val extends Context>
     Object? groupId = freezed,
     Object? userId = freezed,
     Object? endpointUrl = null,
-    Object? viewType = null,
+    Object? viewType = freezed,
     Object? accessTokenHash = freezed,
     Object? permanentLinkPattern = null,
     Object? tid = freezed,
@@ -141,10 +141,10 @@ class _$ContextCopyWithImpl<$Res, $Val extends Context>
           ? _value.endpointUrl
           : endpointUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      viewType: null == viewType
+      viewType: freezed == viewType
           ? _value.viewType
           : viewType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       accessTokenHash: freezed == accessTokenHash
           ? _value.accessTokenHash
           : accessTokenHash // ignore: cast_nullable_to_non_nullable
@@ -278,7 +278,7 @@ abstract class _$$ContextImplCopyWith<$Res> implements $ContextCopyWith<$Res> {
       String? groupId,
       String? userId,
       String endpointUrl,
-      String viewType,
+      String? viewType,
       String? accessTokenHash,
       String permanentLinkPattern,
       String? tid,
@@ -323,7 +323,7 @@ class __$$ContextImplCopyWithImpl<$Res>
     Object? groupId = freezed,
     Object? userId = freezed,
     Object? endpointUrl = null,
-    Object? viewType = null,
+    Object? viewType = freezed,
     Object? accessTokenHash = freezed,
     Object? permanentLinkPattern = null,
     Object? tid = freezed,
@@ -362,10 +362,10 @@ class __$$ContextImplCopyWithImpl<$Res>
           ? _value.endpointUrl
           : endpointUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      viewType: null == viewType
+      viewType: freezed == viewType
           ? _value.viewType
           : viewType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       accessTokenHash: freezed == accessTokenHash
           ? _value.accessTokenHash
           : accessTokenHash // ignore: cast_nullable_to_non_nullable
@@ -428,7 +428,7 @@ class _$ContextImpl implements _Context {
       this.groupId,
       this.userId,
       required this.endpointUrl,
-      required this.viewType,
+      this.viewType,
       this.accessTokenHash,
       required this.permanentLinkPattern,
       this.tid,
@@ -459,7 +459,7 @@ class _$ContextImpl implements _Context {
 
   /// allow viewType = 'compact'|'tall'|'full'|'cover'|'frame'|'new full'|'full flex'
   @override
-  final String viewType;
+  final String? viewType;
   @override
   final String? accessTokenHash;
 
@@ -575,7 +575,7 @@ abstract class _Context implements Context {
       final String? groupId,
       final String? userId,
       required final String endpointUrl,
-      required final String viewType,
+      final String? viewType,
       final String? accessTokenHash,
       required final String permanentLinkPattern,
       final String? tid,
@@ -605,7 +605,7 @@ abstract class _Context implements Context {
 
   /// allow viewType = 'compact'|'tall'|'full'|'cover'|'frame'|'new full'|'full flex'
   @override
-  String get viewType;
+  String? get viewType;
   @override
   String? get accessTokenHash;
 

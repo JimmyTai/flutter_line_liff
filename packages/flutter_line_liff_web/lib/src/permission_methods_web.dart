@@ -12,9 +12,10 @@ class PermissionMethodsWeb implements PermissionMethodsPlatform {
       liff.permission
           .query(permission.toJS)
           .toDart
-          .then((value) => value.toDart);
+          .then((value) => value.toDart)
+          .handleLiffException();
 
   @override
   Future<void> requestAll() =>
-      liff.permission.requestAll().toDart.ignoreResult();
+      liff.permission.requestAll().toDart.ignoreResult().handleLiffException();
 }

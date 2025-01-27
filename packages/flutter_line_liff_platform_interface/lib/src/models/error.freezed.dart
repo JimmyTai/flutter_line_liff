@@ -15,37 +15,38 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$LiffError {
+mixin _$LiffException {
   String get name => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
   String? get stack => throw _privateConstructorUsedError;
 
-  /// Create a copy of LiffError
+  /// Create a copy of LiffException
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $LiffErrorCopyWith<LiffError> get copyWith =>
+  $LiffExceptionCopyWith<LiffException> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LiffErrorCopyWith<$Res> {
-  factory $LiffErrorCopyWith(LiffError value, $Res Function(LiffError) then) =
-      _$LiffErrorCopyWithImpl<$Res, LiffError>;
+abstract class $LiffExceptionCopyWith<$Res> {
+  factory $LiffExceptionCopyWith(
+          LiffException value, $Res Function(LiffException) then) =
+      _$LiffExceptionCopyWithImpl<$Res, LiffException>;
   @useResult
   $Res call({String name, String message, String? stack});
 }
 
 /// @nodoc
-class _$LiffErrorCopyWithImpl<$Res, $Val extends LiffError>
-    implements $LiffErrorCopyWith<$Res> {
-  _$LiffErrorCopyWithImpl(this._value, this._then);
+class _$LiffExceptionCopyWithImpl<$Res, $Val extends LiffException>
+    implements $LiffExceptionCopyWith<$Res> {
+  _$LiffExceptionCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of LiffError
+  /// Create a copy of LiffException
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -72,25 +73,25 @@ class _$LiffErrorCopyWithImpl<$Res, $Val extends LiffError>
 }
 
 /// @nodoc
-abstract class _$$LiffErrorImplCopyWith<$Res>
-    implements $LiffErrorCopyWith<$Res> {
-  factory _$$LiffErrorImplCopyWith(
-          _$LiffErrorImpl value, $Res Function(_$LiffErrorImpl) then) =
-      __$$LiffErrorImplCopyWithImpl<$Res>;
+abstract class _$$LiffExceptionImplCopyWith<$Res>
+    implements $LiffExceptionCopyWith<$Res> {
+  factory _$$LiffExceptionImplCopyWith(
+          _$LiffExceptionImpl value, $Res Function(_$LiffExceptionImpl) then) =
+      __$$LiffExceptionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String message, String? stack});
 }
 
 /// @nodoc
-class __$$LiffErrorImplCopyWithImpl<$Res>
-    extends _$LiffErrorCopyWithImpl<$Res, _$LiffErrorImpl>
-    implements _$$LiffErrorImplCopyWith<$Res> {
-  __$$LiffErrorImplCopyWithImpl(
-      _$LiffErrorImpl _value, $Res Function(_$LiffErrorImpl) _then)
+class __$$LiffExceptionImplCopyWithImpl<$Res>
+    extends _$LiffExceptionCopyWithImpl<$Res, _$LiffExceptionImpl>
+    implements _$$LiffExceptionImplCopyWith<$Res> {
+  __$$LiffExceptionImplCopyWithImpl(
+      _$LiffExceptionImpl _value, $Res Function(_$LiffExceptionImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of LiffError
+  /// Create a copy of LiffException
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -99,7 +100,7 @@ class __$$LiffErrorImplCopyWithImpl<$Res>
     Object? message = null,
     Object? stack = freezed,
   }) {
-    return _then(_$LiffErrorImpl(
+    return _then(_$LiffExceptionImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -118,8 +119,8 @@ class __$$LiffErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LiffErrorImpl implements _LiffError {
-  const _$LiffErrorImpl(
+class _$LiffExceptionImpl implements _LiffException {
+  const _$LiffExceptionImpl(
       {required this.name, required this.message, this.stack});
 
   @override
@@ -131,14 +132,14 @@ class _$LiffErrorImpl implements _LiffError {
 
   @override
   String toString() {
-    return 'LiffError(name: $name, message: $message, stack: $stack)';
+    return 'LiffException(name: $name, message: $message, stack: $stack)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LiffErrorImpl &&
+            other is _$LiffExceptionImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.stack, stack) || other.stack == stack));
@@ -147,20 +148,20 @@ class _$LiffErrorImpl implements _LiffError {
   @override
   int get hashCode => Object.hash(runtimeType, name, message, stack);
 
-  /// Create a copy of LiffError
+  /// Create a copy of LiffException
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$LiffErrorImplCopyWith<_$LiffErrorImpl> get copyWith =>
-      __$$LiffErrorImplCopyWithImpl<_$LiffErrorImpl>(this, _$identity);
+  _$$LiffExceptionImplCopyWith<_$LiffExceptionImpl> get copyWith =>
+      __$$LiffExceptionImplCopyWithImpl<_$LiffExceptionImpl>(this, _$identity);
 }
 
-abstract class _LiffError implements LiffError {
-  const factory _LiffError(
+abstract class _LiffException implements LiffException {
+  const factory _LiffException(
       {required final String name,
       required final String message,
-      final String? stack}) = _$LiffErrorImpl;
+      final String? stack}) = _$LiffExceptionImpl;
 
   @override
   String get name;
@@ -169,10 +170,10 @@ abstract class _LiffError implements LiffError {
   @override
   String? get stack;
 
-  /// Create a copy of LiffError
+  /// Create a copy of LiffException
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LiffErrorImplCopyWith<_$LiffErrorImpl> get copyWith =>
+  _$$LiffExceptionImplCopyWith<_$LiffExceptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

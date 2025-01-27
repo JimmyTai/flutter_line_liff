@@ -13,15 +13,13 @@ void main() {
       WidgetsFlutterBinding.ensureInitialized();
       Fimber.plantTree(DebugTree());
       Fimber.d('try to initialize line-liff SDK');
-      Fimber.d('LINE LIFF ID: ${FlutterLineLiff().id}');
-      FlutterLineLiff().init(
+      FlutterLineLiff.instance.init(
         config: Config(liffId: 'xxxxxxxxxxxx'),
         successCallback: () {
           Fimber.d('LIFF init success.');
         },
-        errorCallback: (error) {
-          Fimber.e(
-              'LIFF init error: ${error.name}, ${error.message}, ${error.stack}');
+        errorCallback: (e) {
+          Fimber.e('LIFF init error: ${e.name}, ${e.message}');
         },
       );
     },
@@ -57,13 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    Fimber.d('message: ${const TemplateMessage(
-      altText: 'This is a buttons template',
-      template: TemplateButtons(text: 'Please select', actions: [
-        URIAction(label: 'Google', uri: 'https://www.google.com'),
-      ]),
-    ).toMap()}');
-    FlutterLineLiff().ready.then((_) {
+    FlutterLineLiff.instance.ready.then((_) {
       setState(() {
         _isInitDone = true;
       });
@@ -90,15 +82,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: LiffInfo(),
                   ),
                   SliverToBoxAdapter(
-                    child: FutureBuilder<Profile>(
-                      future: FlutterLineLiff().profile,
+                    child: FutureBuilder<Profile?>(
+                      future: FlutterLineLiff.instance.profile,
                       builder: (context, snapshot) =>
                           Text('Profile: ${snapshot.data}\n\n'),
                     ),
                   ),
                   SliverToBoxAdapter(
                     child: FutureBuilder<Friendship>(
-                      future: FlutterLineLiff().friendship,
+                      future: FlutterLineLiff.instance.friendship,
                       builder: (context, snapshot) =>
                           Text('Friendship: ${snapshot.data}\n\n'),
                     ),
@@ -106,14 +98,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   SliverToBoxAdapter(
                     child: TextButton(
                       onPressed: () {
-                        if (!FlutterLineLiff().isLoggedIn) {
-                          FlutterLineLiff().login();
+                        if (!FlutterLineLiff.instance.isLoggedIn) {
+                          FlutterLineLiff.instance.login();
                         } else {
-                          FlutterLineLiff().logout();
+                          FlutterLineLiff.instance.logout();
                         }
                       },
-                      child: Text(
-                          FlutterLineLiff().isLoggedIn ? 'logout' : 'login'),
+                      child: Text(FlutterLineLiff.instance.isLoggedIn
+                          ? 'logout'
+                          : 'login'),
                     ),
                   ),
 
@@ -121,14 +114,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   SliverToBoxAdapter(
                     child: TextButton(
                       onPressed: () {
-                        FlutterLineLiff()
-                            .permission
+                        FlutterLineLiff.instance.permission
                             .query(permission: Permission.chatMessageWrite)
                             .then((status) {
                           Fimber.d('Permission status: $status');
-                        }).onError((error, stackTrace) {
-                          Fimber.e(
-                              'Query Permission status with error: $error, $stackTrace');
+                        }).catchError((e) {
+                          Fimber.e('Query Permission status with error: $e');
                         });
                       },
                       child: const Text('Query Permission'),
@@ -137,11 +128,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   SliverToBoxAdapter(
                     child: TextButton(
                       onPressed: () {
-                        FlutterLineLiff().permission.requestAll().then((_) {
+                        FlutterLineLiff.instance.permission
+                            .requestAll()
+                            .then((_) {
                           Fimber.d('Request All Permission done.');
-                        }).onError((error, stackTrace) {
-                          Fimber.e(
-                              'Request All Permission with error: $error, $stackTrace');
+                        }).catchError((e) {
+                          Fimber.e('Request All Permission with error: $e');
                         });
                       },
                       child: const Text('Request All Permission'),
@@ -150,7 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   SliverToBoxAdapter(
                     child: TextButton(
                       onPressed: () {
-                        FlutterLineLiff().closeWindow();
+                        FlutterLineLiff.instance.closeWindow();
                       },
                       child: const Text('Close Window'),
                     ),
@@ -166,13 +158,14 @@ class _MyHomePageState extends State<MyHomePage> {
                             setState(() {
                               _qrCodeV2Value = null;
                             });
-                            FlutterLineLiff().scanCodeV2().then((result) {
+                            FlutterLineLiff.instance
+                                .scanCodeV2()
+                                .then((result) {
                               setState(() {
                                 _qrCodeV2Value = result.value;
                               });
-                            }).onError((error, stackTrace) {
-                              Fimber.e(
-                                  'Scan QR code V2 with error: $error, $stackTrace');
+                            }).catchError((e) {
+                              Fimber.e('Scan QR code V2 with error: $e');
                             });
                           },
                           child: const Text('Scan QR code V2'),
@@ -189,15 +182,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   SliverToBoxAdapter(
                     child: TextButton(
                       onPressed: () {
-                        FlutterLineLiff().shareTargetPicker(
+                        FlutterLineLiff.instance.shareTargetPicker(
                           messages: [
                             const TextMessage(
                               text: 'Share Target Test',
                             ),
                           ],
-                        ).onError((error, stackTrace) {
-                          Fimber.e(
-                              'Send messages with error: $error, $stackTrace');
+                        ).catchError((e) {
+                          Fimber.e('Send messages with error: $e');
                           return null;
                         }).then((result) {
                           Fimber.d('Share Target result: $result');
