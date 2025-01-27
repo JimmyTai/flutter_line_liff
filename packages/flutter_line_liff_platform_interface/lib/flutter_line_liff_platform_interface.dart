@@ -1,16 +1,14 @@
-library flutter_line_liff_platform_interface;
+library;
 
 import 'package:flutter/foundation.dart';
 
 import 'method_channel_flutter_line_liff.dart';
 
-import 'src/model.dart';
-import 'src/permission_platform_interface.dart';
-import 'src/permanent_link_platform_interface.dart';
+import 'src/types.dart';
+import 'src/models/models.dart';
 
-export 'src/model.dart';
-export 'src/permission_platform_interface.dart';
-export 'src/permanent_link_platform_interface.dart';
+export 'src/types.dart';
+export 'src/models/models.dart';
 
 abstract class FlutterLineLiffPlatform {
   static FlutterLineLiffPlatform get instance => _instance;
@@ -74,7 +72,7 @@ abstract class FlutterLineLiffPlatform {
 
   String? getIDToken();
 
-  JWTPayload? getDecodedIDToken();
+  JwtPayload? getDecodedIDToken();
 
   PermissionMethodsPlatform get permission;
 
@@ -88,8 +86,9 @@ abstract class FlutterLineLiffPlatform {
 
   Future<void> sendMessages({required List<Message> messages});
 
-  Future<void> sendCustomMessages(
-      {required List<Map<String, dynamic>> messages});
+  Future<void> sendCustomMessages({
+    required List<Map<String, dynamic>> messages,
+  });
 
   Future<ShareTargetPickerResult?> shareTargetPicker({
     required List<Message> messages,
@@ -97,7 +96,7 @@ abstract class FlutterLineLiffPlatform {
   });
 
   Future<ShareTargetPickerResult?> shareCustomTargetPicker({
-    required List<dynamic> messages,
+    required List<Map<String, dynamic>> messages,
     ShareTargetPickerOptions options,
   });
 

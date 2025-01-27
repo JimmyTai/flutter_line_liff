@@ -1,16 +1,22 @@
-part of '../flutter_line_liff_web.dart';
+import 'dart:js_interop';
 
-final PermanentLinkPlugin permanentLinkPlugin = PermanentLinkPlugin();
+import 'package:flutter_line_liff_platform_interface/flutter_line_liff_platform_interface.dart';
 
-class PermanentLinkPlugin extends PermanentLinkPlatform {
+import 'js/js.dart';
+import 'utils.dart';
+
+class PermanentLinkWeb implements PermanentLinkPlatform {
   @override
-  String createUrl() => liff.permanentLink.createUrl();
+  String createUrl() => liff.permanentLink.createUrl().toDart;
 
   @override
-  Future<String> createUrlBy({required String url}) =>
-      promiseToFuture(liff.permanentLink.createUrlBy(url));
+  Future<String> createUrlBy({required String url}) => liff.permanentLink
+      .createUrlBy(url.toJS)
+      .toDart
+      .then((result) => result.toDart)
+      .handleLiffException();
 
   @override
   void setExtraQueryParam({required String paramsToAdd}) =>
-      liff.permanentLink.setExtraQueryParam(paramsToAdd);
+      liff.permanentLink.setExtraQueryParam(paramsToAdd.toJS);
 }

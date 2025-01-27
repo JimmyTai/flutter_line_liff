@@ -5,7 +5,7 @@ import 'package:flutter_line_liff/flutter_line_liff.dart';
 import '../messages.dart';
 
 class SendMessageButtons extends StatefulWidget {
-  const SendMessageButtons({Key? key}) : super(key: key);
+  const SendMessageButtons({super.key});
 
   @override
   State<SendMessageButtons> createState() => _SendMessageButtonsState();
@@ -13,10 +13,10 @@ class SendMessageButtons extends StatefulWidget {
 
 class _SendMessageButtonsState extends State<SendMessageButtons> {
   void _sendMessages(List<Message> messages) {
-    FlutterLineLiff().sendMessages(messages: messages).then((_) {
+    FlutterLineLiff.instance.sendMessages(messages: messages).then((_) {
       Fimber.d('Send messages done');
-    }).onError((error, stackTrace) {
-      Fimber.e('Send messages with error: $error, $stackTrace');
+    }).catchError((e) {
+      Fimber.e('Send messages with error: $e');
     });
   }
 

@@ -4,15 +4,16 @@ version: 0.1.0
 homepage: https://www.github.com/JimmyTai/flutter_line_liff
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
-  flutter: ">=3.12.0"
+  sdk: ">=3.4.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  js: ^0.7.1
+  freezed_annotation: ^2.4.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.13
+  freezed: ^2.5.7

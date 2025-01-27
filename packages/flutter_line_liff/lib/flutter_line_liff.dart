@@ -1,15 +1,14 @@
-library flutter_line_liff;
+library;
 
 import 'package:flutter_line_liff_platform_interface/flutter_line_liff_platform_interface.dart';
 
-export 'package:flutter_line_liff_platform_interface/src/model.dart';
+export 'package:flutter_line_liff_platform_interface/src/models/models.dart';
+export 'package:flutter_line_liff_platform_interface/src/types.dart';
 
 class FlutterLineLiff {
-  static const FlutterLineLiff _instance = FlutterLineLiff._();
+  FlutterLineLiff._();
 
-  factory FlutterLineLiff() => _instance;
-
-  const FlutterLineLiff._();
+  static FlutterLineLiff instance = FlutterLineLiff._();
 
   static FlutterLineLiffPlatform get _store => FlutterLineLiffPlatform.instance;
 
@@ -53,7 +52,7 @@ class FlutterLineLiff {
 
   String? getIDToken() => _store.getIDToken();
 
-  JWTPayload? getDecodedIDToken() => _store.getDecodedIDToken();
+  JwtPayload? getDecodedIDToken() => _store.getDecodedIDToken();
 
   PermissionMethodsPlatform get permission => _store.permission;
 
@@ -69,8 +68,9 @@ class FlutterLineLiff {
   Future<void> sendMessages({required List<Message> messages}) =>
       _store.sendMessages(messages: messages);
 
-  Future<void> sendCustomMessages(
-          {required List<Map<String, dynamic>> messages}) =>
+  Future<void> sendCustomMessages({
+    required List<Map<String, dynamic>> messages,
+  }) =>
       _store.sendCustomMessages(messages: messages);
 
   Future<ShareTargetPickerResult?> shareTargetPicker({
@@ -78,7 +78,20 @@ class FlutterLineLiff {
     ShareTargetPickerOptions options =
         const ShareTargetPickerOptions(isMultiple: false),
   }) =>
-      _store.shareTargetPicker(messages: messages, options: options);
+      _store.shareTargetPicker(
+        messages: messages,
+        options: options,
+      );
+
+  Future<ShareTargetPickerResult?> shareCustomTargetPicker({
+    required List<Map<String, dynamic>> messages,
+    ShareTargetPickerOptions options =
+        const ShareTargetPickerOptions(isMultiple: false),
+  }) =>
+      _store.shareCustomTargetPicker(
+        messages: messages,
+        options: options,
+      );
 
   Future<ScanCodeResult> scanCodeV2() => _store.scanCodeV2();
 
