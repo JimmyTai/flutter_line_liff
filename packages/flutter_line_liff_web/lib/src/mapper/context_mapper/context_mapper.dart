@@ -18,9 +18,6 @@ export 'uts_tracking_mapper.dart';
 extension JSContextToContext on JSContext {
   Context get toDart => Context(
         type: _toScreenType(type.toDart),
-        utouId: utouId?.toDart,
-        roomId: roomId?.toDart,
-        groupId: groupId?.toDart,
         userId: userId?.toDart,
         endpointUrl: endpointUrl.toDart,
         viewType: viewType?.toDart,

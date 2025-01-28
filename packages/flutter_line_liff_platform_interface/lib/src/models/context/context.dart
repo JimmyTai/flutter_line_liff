@@ -36,9 +36,6 @@ class Context with _$Context {
   const factory Context({
     /// The type of screen from where the LIFF app was launched.
     required ScreenType type,
-    String? utouId,
-    String? roomId,
-    String? groupId,
     String? userId,
     required String endpointUrl,
 

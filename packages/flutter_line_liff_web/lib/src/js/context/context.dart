@@ -17,12 +17,6 @@ extension type JSContext._(JSObject _) implements JSObject {
   /// allow type = 'utou'|'room'|'group'|'none'|'square_chat'|'external'
   external JSString get type;
 
-  external JSString? get utouId;
-
-  external JSString? get roomId;
-
-  external JSString? get groupId;
-
   external JSString? get userId;
 
   external JSString get endpointUrl;

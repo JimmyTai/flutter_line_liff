@@ -18,9 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Context {
   /// The type of screen from where the LIFF app was launched.
   ScreenType get type => throw _privateConstructorUsedError;
-  String? get utouId => throw _privateConstructorUsedError;
-  String? get roomId => throw _privateConstructorUsedError;
-  String? get groupId => throw _privateConstructorUsedError;
   String? get userId => throw _privateConstructorUsedError;
   String get endpointUrl => throw _privateConstructorUsedError;
 
@@ -55,9 +52,6 @@ abstract class $ContextCopyWith<$Res> {
   @useResult
   $Res call(
       {ScreenType type,
-      String? utouId,
-      String? roomId,
-      String? groupId,
       String? userId,
       String endpointUrl,
       String? viewType,
@@ -97,9 +91,6 @@ class _$ContextCopyWithImpl<$Res, $Val extends Context>
   @override
   $Res call({
     Object? type = null,
-    Object? utouId = freezed,
-    Object? roomId = freezed,
-    Object? groupId = freezed,
     Object? userId = freezed,
     Object? endpointUrl = null,
     Object? viewType = freezed,
@@ -121,18 +112,6 @@ class _$ContextCopyWithImpl<$Res, $Val extends Context>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as ScreenType,
-      utouId: freezed == utouId
-          ? _value.utouId
-          : utouId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      roomId: freezed == roomId
-          ? _value.roomId
-          : roomId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      groupId: freezed == groupId
-          ? _value.groupId
-          : groupId // ignore: cast_nullable_to_non_nullable
-              as String?,
       userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -273,9 +252,6 @@ abstract class _$$ContextImplCopyWith<$Res> implements $ContextCopyWith<$Res> {
   @useResult
   $Res call(
       {ScreenType type,
-      String? utouId,
-      String? roomId,
-      String? groupId,
       String? userId,
       String endpointUrl,
       String? viewType,
@@ -318,9 +294,6 @@ class __$$ContextImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? type = null,
-    Object? utouId = freezed,
-    Object? roomId = freezed,
-    Object? groupId = freezed,
     Object? userId = freezed,
     Object? endpointUrl = null,
     Object? viewType = freezed,
@@ -342,18 +315,6 @@ class __$$ContextImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as ScreenType,
-      utouId: freezed == utouId
-          ? _value.utouId
-          : utouId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      roomId: freezed == roomId
-          ? _value.roomId
-          : roomId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      groupId: freezed == groupId
-          ? _value.groupId
-          : groupId // ignore: cast_nullable_to_non_nullable
-              as String?,
       userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -423,9 +384,6 @@ class __$$ContextImplCopyWithImpl<$Res>
 class _$ContextImpl implements _Context {
   const _$ContextImpl(
       {required this.type,
-      this.utouId,
-      this.roomId,
-      this.groupId,
       this.userId,
       required this.endpointUrl,
       this.viewType,
@@ -446,12 +404,6 @@ class _$ContextImpl implements _Context {
   /// The type of screen from where the LIFF app was launched.
   @override
   final ScreenType type;
-  @override
-  final String? utouId;
-  @override
-  final String? roomId;
-  @override
-  final String? groupId;
   @override
   final String? userId;
   @override
@@ -494,7 +446,7 @@ class _$ContextImpl implements _Context {
 
   @override
   String toString() {
-    return 'Context(type: $type, utouId: $utouId, roomId: $roomId, groupId: $groupId, userId: $userId, endpointUrl: $endpointUrl, viewType: $viewType, accessTokenHash: $accessTokenHash, permanentLinkPattern: $permanentLinkPattern, tid: $tid, squareId: $squareId, squareChatId: $squareChatId, squareMemberId: $squareMemberId, profilePlus: $profilePlus, d: $d, availability: $availability, utsTracking: $utsTracking, menuColorSetting: $menuColorSetting, scope: $scope)';
+    return 'Context(type: $type, userId: $userId, endpointUrl: $endpointUrl, viewType: $viewType, accessTokenHash: $accessTokenHash, permanentLinkPattern: $permanentLinkPattern, tid: $tid, squareId: $squareId, squareChatId: $squareChatId, squareMemberId: $squareMemberId, profilePlus: $profilePlus, d: $d, availability: $availability, utsTracking: $utsTracking, menuColorSetting: $menuColorSetting, scope: $scope)';
   }
 
   @override
@@ -503,9 +455,6 @@ class _$ContextImpl implements _Context {
         (other.runtimeType == runtimeType &&
             other is _$ContextImpl &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.utouId, utouId) || other.utouId == utouId) &&
-            (identical(other.roomId, roomId) || other.roomId == roomId) &&
-            (identical(other.groupId, groupId) || other.groupId == groupId) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.endpointUrl, endpointUrl) ||
                 other.endpointUrl == endpointUrl) &&
@@ -535,28 +484,24 @@ class _$ContextImpl implements _Context {
   }
 
   @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        type,
-        utouId,
-        roomId,
-        groupId,
-        userId,
-        endpointUrl,
-        viewType,
-        accessTokenHash,
-        permanentLinkPattern,
-        tid,
-        squareId,
-        squareChatId,
-        squareMemberId,
-        profilePlus,
-        d,
-        availability,
-        utsTracking,
-        menuColorSetting,
-        const DeepCollectionEquality().hash(_scope)
-      ]);
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      userId,
+      endpointUrl,
+      viewType,
+      accessTokenHash,
+      permanentLinkPattern,
+      tid,
+      squareId,
+      squareChatId,
+      squareMemberId,
+      profilePlus,
+      d,
+      availability,
+      utsTracking,
+      menuColorSetting,
+      const DeepCollectionEquality().hash(_scope));
 
   /// Create a copy of Context
   /// with the given fields replaced by the non-null parameter values.
@@ -570,9 +515,6 @@ class _$ContextImpl implements _Context {
 abstract class _Context implements Context {
   const factory _Context(
       {required final ScreenType type,
-      final String? utouId,
-      final String? roomId,
-      final String? groupId,
       final String? userId,
       required final String endpointUrl,
       final String? viewType,
@@ -592,12 +534,6 @@ abstract class _Context implements Context {
   /// The type of screen from where the LIFF app was launched.
   @override
   ScreenType get type;
-  @override
-  String? get utouId;
-  @override
-  String? get roomId;
-  @override
-  String? get groupId;
   @override
   String? get userId;
   @override
