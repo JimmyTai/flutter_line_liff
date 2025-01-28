@@ -18,26 +18,48 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Context {
   /// The type of screen from where the LIFF app was launched.
   ScreenType get type => throw _privateConstructorUsedError;
+
+  /// User ID. Included when the type property is utou, room, group, none or external.
+  /// However, null may be returned when type is external.
   String? get userId => throw _privateConstructorUsedError;
+
+  /// LIFF ID.
+  String? get liffId => throw _privateConstructorUsedError;
+
+  /// Size of the LIFF app view, only returned if the type property isn't external.
+  ViewType? get viewType => throw _privateConstructorUsedError;
+
+  /// URL of the service endpoint.
   String get endpointUrl => throw _privateConstructorUsedError;
 
-  /// allow viewType = 'compact'|'tall'|'full'|'cover'|'frame'|'new full'|'full flex'
-  String? get viewType => throw _privateConstructorUsedError;
+  /// First half of the hashed SHA256 value of the access token.
+  /// Used to validate the access token.
   String? get accessTokenHash => throw _privateConstructorUsedError;
 
-  /// allow permanentLinkPattern = 'concat'
+  /// Returns the [Availability] that indicates whether the LIFF features are available in the environment in which the LIFF app was launched.
+  Availabilities get availability => throw _privateConstructorUsedError;
+
+  /// The scopes the LIFF app has within the scope required to use some of the LIFF SDK methods
+  List<Scope> get scope => throw _privateConstructorUsedError;
+
+  /// The color setting of the LIFF browser header as a [LiffMenuColorSetting]
+  ///
+  /// **Note that we currently don't provide the ability to change the header color setting.**
+  LiffMenuColorSettings? get menuColorSetting =>
+      throw _privateConstructorUsedError;
+
+  /// The string set by the Custom Path feature of the LINE MINI App
+  String? get miniAppId => throw _privateConstructorUsedError;
+
+  /// Whether the LINE MINI App is available on the miniapp.line.me domain.
+  String? get miniDomainAllowed => throw _privateConstructorUsedError;
+
+  /// How additional information in LIFF URLs is handled. concat is returned.
   String get permanentLinkPattern => throw _privateConstructorUsedError;
   String? get tid => throw _privateConstructorUsedError;
   String? get squareId => throw _privateConstructorUsedError;
   String? get squareChatId => throw _privateConstructorUsedError;
   String? get squareMemberId => throw _privateConstructorUsedError;
-  ProfilePlusInterface? get profilePlus => throw _privateConstructorUsedError;
-  D? get d => throw _privateConstructorUsedError;
-  Availabilities get availability => throw _privateConstructorUsedError;
-  UtsTracking? get utsTracking => throw _privateConstructorUsedError;
-  LiffMenuColorSettings? get menuColorSetting =>
-      throw _privateConstructorUsedError;
-  List<String> get scope => throw _privateConstructorUsedError;
 
   /// Create a copy of Context
   /// with the given fields replaced by the non-null parameter values.
@@ -53,25 +75,22 @@ abstract class $ContextCopyWith<$Res> {
   $Res call(
       {ScreenType type,
       String? userId,
+      String? liffId,
+      ViewType? viewType,
       String endpointUrl,
-      String? viewType,
       String? accessTokenHash,
+      Availabilities availability,
+      List<Scope> scope,
+      LiffMenuColorSettings? menuColorSetting,
+      String? miniAppId,
+      String? miniDomainAllowed,
       String permanentLinkPattern,
       String? tid,
       String? squareId,
       String? squareChatId,
-      String? squareMemberId,
-      ProfilePlusInterface? profilePlus,
-      D? d,
-      Availabilities availability,
-      UtsTracking? utsTracking,
-      LiffMenuColorSettings? menuColorSetting,
-      List<String> scope});
+      String? squareMemberId});
 
-  $ProfilePlusInterfaceCopyWith<$Res>? get profilePlus;
-  $DCopyWith<$Res>? get d;
   $AvailabilitiesCopyWith<$Res> get availability;
-  $UtsTrackingCopyWith<$Res>? get utsTracking;
   $LiffMenuColorSettingsCopyWith<$Res>? get menuColorSetting;
 }
 
@@ -92,20 +111,20 @@ class _$ContextCopyWithImpl<$Res, $Val extends Context>
   $Res call({
     Object? type = null,
     Object? userId = freezed,
-    Object? endpointUrl = null,
+    Object? liffId = freezed,
     Object? viewType = freezed,
+    Object? endpointUrl = null,
     Object? accessTokenHash = freezed,
+    Object? availability = null,
+    Object? scope = null,
+    Object? menuColorSetting = freezed,
+    Object? miniAppId = freezed,
+    Object? miniDomainAllowed = freezed,
     Object? permanentLinkPattern = null,
     Object? tid = freezed,
     Object? squareId = freezed,
     Object? squareChatId = freezed,
     Object? squareMemberId = freezed,
-    Object? profilePlus = freezed,
-    Object? d = freezed,
-    Object? availability = null,
-    Object? utsTracking = freezed,
-    Object? menuColorSetting = freezed,
-    Object? scope = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -116,17 +135,41 @@ class _$ContextCopyWithImpl<$Res, $Val extends Context>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String?,
+      liffId: freezed == liffId
+          ? _value.liffId
+          : liffId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      viewType: freezed == viewType
+          ? _value.viewType
+          : viewType // ignore: cast_nullable_to_non_nullable
+              as ViewType?,
       endpointUrl: null == endpointUrl
           ? _value.endpointUrl
           : endpointUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      viewType: freezed == viewType
-          ? _value.viewType
-          : viewType // ignore: cast_nullable_to_non_nullable
-              as String?,
       accessTokenHash: freezed == accessTokenHash
           ? _value.accessTokenHash
           : accessTokenHash // ignore: cast_nullable_to_non_nullable
+              as String?,
+      availability: null == availability
+          ? _value.availability
+          : availability // ignore: cast_nullable_to_non_nullable
+              as Availabilities,
+      scope: null == scope
+          ? _value.scope
+          : scope // ignore: cast_nullable_to_non_nullable
+              as List<Scope>,
+      menuColorSetting: freezed == menuColorSetting
+          ? _value.menuColorSetting
+          : menuColorSetting // ignore: cast_nullable_to_non_nullable
+              as LiffMenuColorSettings?,
+      miniAppId: freezed == miniAppId
+          ? _value.miniAppId
+          : miniAppId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      miniDomainAllowed: freezed == miniDomainAllowed
+          ? _value.miniDomainAllowed
+          : miniDomainAllowed // ignore: cast_nullable_to_non_nullable
               as String?,
       permanentLinkPattern: null == permanentLinkPattern
           ? _value.permanentLinkPattern
@@ -148,59 +191,7 @@ class _$ContextCopyWithImpl<$Res, $Val extends Context>
           ? _value.squareMemberId
           : squareMemberId // ignore: cast_nullable_to_non_nullable
               as String?,
-      profilePlus: freezed == profilePlus
-          ? _value.profilePlus
-          : profilePlus // ignore: cast_nullable_to_non_nullable
-              as ProfilePlusInterface?,
-      d: freezed == d
-          ? _value.d
-          : d // ignore: cast_nullable_to_non_nullable
-              as D?,
-      availability: null == availability
-          ? _value.availability
-          : availability // ignore: cast_nullable_to_non_nullable
-              as Availabilities,
-      utsTracking: freezed == utsTracking
-          ? _value.utsTracking
-          : utsTracking // ignore: cast_nullable_to_non_nullable
-              as UtsTracking?,
-      menuColorSetting: freezed == menuColorSetting
-          ? _value.menuColorSetting
-          : menuColorSetting // ignore: cast_nullable_to_non_nullable
-              as LiffMenuColorSettings?,
-      scope: null == scope
-          ? _value.scope
-          : scope // ignore: cast_nullable_to_non_nullable
-              as List<String>,
     ) as $Val);
-  }
-
-  /// Create a copy of Context
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ProfilePlusInterfaceCopyWith<$Res>? get profilePlus {
-    if (_value.profilePlus == null) {
-      return null;
-    }
-
-    return $ProfilePlusInterfaceCopyWith<$Res>(_value.profilePlus!, (value) {
-      return _then(_value.copyWith(profilePlus: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Context
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $DCopyWith<$Res>? get d {
-    if (_value.d == null) {
-      return null;
-    }
-
-    return $DCopyWith<$Res>(_value.d!, (value) {
-      return _then(_value.copyWith(d: value) as $Val);
-    });
   }
 
   /// Create a copy of Context
@@ -210,20 +201,6 @@ class _$ContextCopyWithImpl<$Res, $Val extends Context>
   $AvailabilitiesCopyWith<$Res> get availability {
     return $AvailabilitiesCopyWith<$Res>(_value.availability, (value) {
       return _then(_value.copyWith(availability: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Context
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $UtsTrackingCopyWith<$Res>? get utsTracking {
-    if (_value.utsTracking == null) {
-      return null;
-    }
-
-    return $UtsTrackingCopyWith<$Res>(_value.utsTracking!, (value) {
-      return _then(_value.copyWith(utsTracking: value) as $Val);
     });
   }
 
@@ -253,29 +230,23 @@ abstract class _$$ContextImplCopyWith<$Res> implements $ContextCopyWith<$Res> {
   $Res call(
       {ScreenType type,
       String? userId,
+      String? liffId,
+      ViewType? viewType,
       String endpointUrl,
-      String? viewType,
       String? accessTokenHash,
+      Availabilities availability,
+      List<Scope> scope,
+      LiffMenuColorSettings? menuColorSetting,
+      String? miniAppId,
+      String? miniDomainAllowed,
       String permanentLinkPattern,
       String? tid,
       String? squareId,
       String? squareChatId,
-      String? squareMemberId,
-      ProfilePlusInterface? profilePlus,
-      D? d,
-      Availabilities availability,
-      UtsTracking? utsTracking,
-      LiffMenuColorSettings? menuColorSetting,
-      List<String> scope});
+      String? squareMemberId});
 
   @override
-  $ProfilePlusInterfaceCopyWith<$Res>? get profilePlus;
-  @override
-  $DCopyWith<$Res>? get d;
-  @override
   $AvailabilitiesCopyWith<$Res> get availability;
-  @override
-  $UtsTrackingCopyWith<$Res>? get utsTracking;
   @override
   $LiffMenuColorSettingsCopyWith<$Res>? get menuColorSetting;
 }
@@ -295,20 +266,20 @@ class __$$ContextImplCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
     Object? userId = freezed,
-    Object? endpointUrl = null,
+    Object? liffId = freezed,
     Object? viewType = freezed,
+    Object? endpointUrl = null,
     Object? accessTokenHash = freezed,
+    Object? availability = null,
+    Object? scope = null,
+    Object? menuColorSetting = freezed,
+    Object? miniAppId = freezed,
+    Object? miniDomainAllowed = freezed,
     Object? permanentLinkPattern = null,
     Object? tid = freezed,
     Object? squareId = freezed,
     Object? squareChatId = freezed,
     Object? squareMemberId = freezed,
-    Object? profilePlus = freezed,
-    Object? d = freezed,
-    Object? availability = null,
-    Object? utsTracking = freezed,
-    Object? menuColorSetting = freezed,
-    Object? scope = null,
   }) {
     return _then(_$ContextImpl(
       type: null == type
@@ -319,17 +290,41 @@ class __$$ContextImplCopyWithImpl<$Res>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String?,
+      liffId: freezed == liffId
+          ? _value.liffId
+          : liffId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      viewType: freezed == viewType
+          ? _value.viewType
+          : viewType // ignore: cast_nullable_to_non_nullable
+              as ViewType?,
       endpointUrl: null == endpointUrl
           ? _value.endpointUrl
           : endpointUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      viewType: freezed == viewType
-          ? _value.viewType
-          : viewType // ignore: cast_nullable_to_non_nullable
-              as String?,
       accessTokenHash: freezed == accessTokenHash
           ? _value.accessTokenHash
           : accessTokenHash // ignore: cast_nullable_to_non_nullable
+              as String?,
+      availability: null == availability
+          ? _value.availability
+          : availability // ignore: cast_nullable_to_non_nullable
+              as Availabilities,
+      scope: null == scope
+          ? _value._scope
+          : scope // ignore: cast_nullable_to_non_nullable
+              as List<Scope>,
+      menuColorSetting: freezed == menuColorSetting
+          ? _value.menuColorSetting
+          : menuColorSetting // ignore: cast_nullable_to_non_nullable
+              as LiffMenuColorSettings?,
+      miniAppId: freezed == miniAppId
+          ? _value.miniAppId
+          : miniAppId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      miniDomainAllowed: freezed == miniDomainAllowed
+          ? _value.miniDomainAllowed
+          : miniDomainAllowed // ignore: cast_nullable_to_non_nullable
               as String?,
       permanentLinkPattern: null == permanentLinkPattern
           ? _value.permanentLinkPattern
@@ -351,30 +346,6 @@ class __$$ContextImplCopyWithImpl<$Res>
           ? _value.squareMemberId
           : squareMemberId // ignore: cast_nullable_to_non_nullable
               as String?,
-      profilePlus: freezed == profilePlus
-          ? _value.profilePlus
-          : profilePlus // ignore: cast_nullable_to_non_nullable
-              as ProfilePlusInterface?,
-      d: freezed == d
-          ? _value.d
-          : d // ignore: cast_nullable_to_non_nullable
-              as D?,
-      availability: null == availability
-          ? _value.availability
-          : availability // ignore: cast_nullable_to_non_nullable
-              as Availabilities,
-      utsTracking: freezed == utsTracking
-          ? _value.utsTracking
-          : utsTracking // ignore: cast_nullable_to_non_nullable
-              as UtsTracking?,
-      menuColorSetting: freezed == menuColorSetting
-          ? _value.menuColorSetting
-          : menuColorSetting // ignore: cast_nullable_to_non_nullable
-              as LiffMenuColorSettings?,
-      scope: null == scope
-          ? _value._scope
-          : scope // ignore: cast_nullable_to_non_nullable
-              as List<String>,
     ));
   }
 }
@@ -385,37 +356,78 @@ class _$ContextImpl implements _Context {
   const _$ContextImpl(
       {required this.type,
       this.userId,
-      required this.endpointUrl,
+      this.liffId,
       this.viewType,
+      required this.endpointUrl,
       this.accessTokenHash,
+      required this.availability,
+      required final List<Scope> scope,
+      this.menuColorSetting,
+      this.miniAppId,
+      this.miniDomainAllowed,
       required this.permanentLinkPattern,
       this.tid,
       this.squareId,
       this.squareChatId,
-      this.squareMemberId,
-      this.profilePlus,
-      this.d,
-      required this.availability,
-      this.utsTracking,
-      this.menuColorSetting,
-      required final List<String> scope})
+      this.squareMemberId})
       : _scope = scope;
 
   /// The type of screen from where the LIFF app was launched.
   @override
   final ScreenType type;
+
+  /// User ID. Included when the type property is utou, room, group, none or external.
+  /// However, null may be returned when type is external.
   @override
   final String? userId;
+
+  /// LIFF ID.
+  @override
+  final String? liffId;
+
+  /// Size of the LIFF app view, only returned if the type property isn't external.
+  @override
+  final ViewType? viewType;
+
+  /// URL of the service endpoint.
   @override
   final String endpointUrl;
 
-  /// allow viewType = 'compact'|'tall'|'full'|'cover'|'frame'|'new full'|'full flex'
-  @override
-  final String? viewType;
+  /// First half of the hashed SHA256 value of the access token.
+  /// Used to validate the access token.
   @override
   final String? accessTokenHash;
 
-  /// allow permanentLinkPattern = 'concat'
+  /// Returns the [Availability] that indicates whether the LIFF features are available in the environment in which the LIFF app was launched.
+  @override
+  final Availabilities availability;
+
+  /// The scopes the LIFF app has within the scope required to use some of the LIFF SDK methods
+  final List<Scope> _scope;
+
+  /// The scopes the LIFF app has within the scope required to use some of the LIFF SDK methods
+  @override
+  List<Scope> get scope {
+    if (_scope is EqualUnmodifiableListView) return _scope;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_scope);
+  }
+
+  /// The color setting of the LIFF browser header as a [LiffMenuColorSetting]
+  ///
+  /// **Note that we currently don't provide the ability to change the header color setting.**
+  @override
+  final LiffMenuColorSettings? menuColorSetting;
+
+  /// The string set by the Custom Path feature of the LINE MINI App
+  @override
+  final String? miniAppId;
+
+  /// Whether the LINE MINI App is available on the miniapp.line.me domain.
+  @override
+  final String? miniDomainAllowed;
+
+  /// How additional information in LIFF URLs is handled. concat is returned.
   @override
   final String permanentLinkPattern;
   @override
@@ -426,27 +438,10 @@ class _$ContextImpl implements _Context {
   final String? squareChatId;
   @override
   final String? squareMemberId;
-  @override
-  final ProfilePlusInterface? profilePlus;
-  @override
-  final D? d;
-  @override
-  final Availabilities availability;
-  @override
-  final UtsTracking? utsTracking;
-  @override
-  final LiffMenuColorSettings? menuColorSetting;
-  final List<String> _scope;
-  @override
-  List<String> get scope {
-    if (_scope is EqualUnmodifiableListView) return _scope;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_scope);
-  }
 
   @override
   String toString() {
-    return 'Context(type: $type, userId: $userId, endpointUrl: $endpointUrl, viewType: $viewType, accessTokenHash: $accessTokenHash, permanentLinkPattern: $permanentLinkPattern, tid: $tid, squareId: $squareId, squareChatId: $squareChatId, squareMemberId: $squareMemberId, profilePlus: $profilePlus, d: $d, availability: $availability, utsTracking: $utsTracking, menuColorSetting: $menuColorSetting, scope: $scope)';
+    return 'Context(type: $type, userId: $userId, liffId: $liffId, viewType: $viewType, endpointUrl: $endpointUrl, accessTokenHash: $accessTokenHash, availability: $availability, scope: $scope, menuColorSetting: $menuColorSetting, miniAppId: $miniAppId, miniDomainAllowed: $miniDomainAllowed, permanentLinkPattern: $permanentLinkPattern, tid: $tid, squareId: $squareId, squareChatId: $squareChatId, squareMemberId: $squareMemberId)';
   }
 
   @override
@@ -456,12 +451,22 @@ class _$ContextImpl implements _Context {
             other is _$ContextImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.userId, userId) || other.userId == userId) &&
-            (identical(other.endpointUrl, endpointUrl) ||
-                other.endpointUrl == endpointUrl) &&
+            (identical(other.liffId, liffId) || other.liffId == liffId) &&
             (identical(other.viewType, viewType) ||
                 other.viewType == viewType) &&
+            (identical(other.endpointUrl, endpointUrl) ||
+                other.endpointUrl == endpointUrl) &&
             (identical(other.accessTokenHash, accessTokenHash) ||
                 other.accessTokenHash == accessTokenHash) &&
+            (identical(other.availability, availability) ||
+                other.availability == availability) &&
+            const DeepCollectionEquality().equals(other._scope, _scope) &&
+            (identical(other.menuColorSetting, menuColorSetting) ||
+                other.menuColorSetting == menuColorSetting) &&
+            (identical(other.miniAppId, miniAppId) ||
+                other.miniAppId == miniAppId) &&
+            (identical(other.miniDomainAllowed, miniDomainAllowed) ||
+                other.miniDomainAllowed == miniDomainAllowed) &&
             (identical(other.permanentLinkPattern, permanentLinkPattern) ||
                 other.permanentLinkPattern == permanentLinkPattern) &&
             (identical(other.tid, tid) || other.tid == tid) &&
@@ -470,17 +475,7 @@ class _$ContextImpl implements _Context {
             (identical(other.squareChatId, squareChatId) ||
                 other.squareChatId == squareChatId) &&
             (identical(other.squareMemberId, squareMemberId) ||
-                other.squareMemberId == squareMemberId) &&
-            (identical(other.profilePlus, profilePlus) ||
-                other.profilePlus == profilePlus) &&
-            (identical(other.d, d) || other.d == d) &&
-            (identical(other.availability, availability) ||
-                other.availability == availability) &&
-            (identical(other.utsTracking, utsTracking) ||
-                other.utsTracking == utsTracking) &&
-            (identical(other.menuColorSetting, menuColorSetting) ||
-                other.menuColorSetting == menuColorSetting) &&
-            const DeepCollectionEquality().equals(other._scope, _scope));
+                other.squareMemberId == squareMemberId));
   }
 
   @override
@@ -488,20 +483,20 @@ class _$ContextImpl implements _Context {
       runtimeType,
       type,
       userId,
-      endpointUrl,
+      liffId,
       viewType,
+      endpointUrl,
       accessTokenHash,
+      availability,
+      const DeepCollectionEquality().hash(_scope),
+      menuColorSetting,
+      miniAppId,
+      miniDomainAllowed,
       permanentLinkPattern,
       tid,
       squareId,
       squareChatId,
-      squareMemberId,
-      profilePlus,
-      d,
-      availability,
-      utsTracking,
-      menuColorSetting,
-      const DeepCollectionEquality().hash(_scope));
+      squareMemberId);
 
   /// Create a copy of Context
   /// with the given fields replaced by the non-null parameter values.
@@ -516,36 +511,70 @@ abstract class _Context implements Context {
   const factory _Context(
       {required final ScreenType type,
       final String? userId,
+      final String? liffId,
+      final ViewType? viewType,
       required final String endpointUrl,
-      final String? viewType,
       final String? accessTokenHash,
+      required final Availabilities availability,
+      required final List<Scope> scope,
+      final LiffMenuColorSettings? menuColorSetting,
+      final String? miniAppId,
+      final String? miniDomainAllowed,
       required final String permanentLinkPattern,
       final String? tid,
       final String? squareId,
       final String? squareChatId,
-      final String? squareMemberId,
-      final ProfilePlusInterface? profilePlus,
-      final D? d,
-      required final Availabilities availability,
-      final UtsTracking? utsTracking,
-      final LiffMenuColorSettings? menuColorSetting,
-      required final List<String> scope}) = _$ContextImpl;
+      final String? squareMemberId}) = _$ContextImpl;
 
   /// The type of screen from where the LIFF app was launched.
   @override
   ScreenType get type;
+
+  /// User ID. Included when the type property is utou, room, group, none or external.
+  /// However, null may be returned when type is external.
   @override
   String? get userId;
+
+  /// LIFF ID.
+  @override
+  String? get liffId;
+
+  /// Size of the LIFF app view, only returned if the type property isn't external.
+  @override
+  ViewType? get viewType;
+
+  /// URL of the service endpoint.
   @override
   String get endpointUrl;
 
-  /// allow viewType = 'compact'|'tall'|'full'|'cover'|'frame'|'new full'|'full flex'
-  @override
-  String? get viewType;
+  /// First half of the hashed SHA256 value of the access token.
+  /// Used to validate the access token.
   @override
   String? get accessTokenHash;
 
-  /// allow permanentLinkPattern = 'concat'
+  /// Returns the [Availability] that indicates whether the LIFF features are available in the environment in which the LIFF app was launched.
+  @override
+  Availabilities get availability;
+
+  /// The scopes the LIFF app has within the scope required to use some of the LIFF SDK methods
+  @override
+  List<Scope> get scope;
+
+  /// The color setting of the LIFF browser header as a [LiffMenuColorSetting]
+  ///
+  /// **Note that we currently don't provide the ability to change the header color setting.**
+  @override
+  LiffMenuColorSettings? get menuColorSetting;
+
+  /// The string set by the Custom Path feature of the LINE MINI App
+  @override
+  String? get miniAppId;
+
+  /// Whether the LINE MINI App is available on the miniapp.line.me domain.
+  @override
+  String? get miniDomainAllowed;
+
+  /// How additional information in LIFF URLs is handled. concat is returned.
   @override
   String get permanentLinkPattern;
   @override
@@ -556,18 +585,6 @@ abstract class _Context implements Context {
   String? get squareChatId;
   @override
   String? get squareMemberId;
-  @override
-  ProfilePlusInterface? get profilePlus;
-  @override
-  D? get d;
-  @override
-  Availabilities get availability;
-  @override
-  UtsTracking? get utsTracking;
-  @override
-  LiffMenuColorSettings? get menuColorSetting;
-  @override
-  List<String> get scope;
 
   /// Create a copy of Context
   /// with the given fields replaced by the non-null parameter values.

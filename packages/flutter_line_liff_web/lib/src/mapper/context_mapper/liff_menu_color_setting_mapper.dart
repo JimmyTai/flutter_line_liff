@@ -7,11 +7,23 @@ import '../../js/js.dart';
 extension JSLiffMenuColorSettingsToLiffMenuColorSettings
     on JSLiffMenuColorSettings {
   LiffMenuColorSettings get toDart => LiffMenuColorSettings(
-        adaptableColorSchemes:
-            adaptableColorSchemes.toDart.map((e) => e.toDart).toList(),
+        adaptableColorSchemes: adaptableColorSchemes.toDart
+            .map((e) => _toAdaptableColorScheme(e.toDart))
+            .toList(),
         lightModeColor: lightModeColor?.toDart,
         dartModeColor: dartModeColor?.toDart,
       );
+
+  AdaptableColorScheme _toAdaptableColorScheme(String type) {
+    switch (type) {
+      case 'light':
+        return AdaptableColorScheme.light;
+      case 'dark':
+        return AdaptableColorScheme.dark;
+      default:
+        throw UnsupportedError('Unsupported AdaptableColorScheme: $type');
+    }
+  }
 }
 
 extension JSLiffMenuColorSettingToLiffMenuColorSetting
@@ -25,7 +37,5 @@ extension JSLiffMenuColorSettingToLiffMenuColorSetting
         titleBackgroundColor: titleBackgroundColor.toDart,
         progressBarColor: progressBarColor.toDart,
         progressBackgroundColor: progressBackgroundColor.toDart,
-        titleButtonAreaBackgroundColor: titleButtonAreaBackgroundColor?.toDart ?? '',
-        titleButtonAreaBorderColor: titleButtonAreaBorderColor?.toDart ?? '',
       );
 }
