@@ -32,6 +32,8 @@ extension type JSLiff._(JSObject _) implements JSObject {
 
   external JSString? getOS();
 
+  external JSString getAppLanguage();
+
   external JSString getLanguage();
 
   external JSString getVersion();

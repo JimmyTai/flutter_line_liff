@@ -19,6 +19,9 @@ class MethodChannelFlutterLineLiff extends FlutterLineLiffPlatform {
   String? get os => throw UnimplementedError();
 
   @override
+  String get appLanguage => throw UnimplementedError();
+
+  @override
   String get language => throw UnimplementedError();
 
   @override

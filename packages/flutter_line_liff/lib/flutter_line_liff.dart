@@ -29,6 +29,8 @@ class FlutterLineLiff {
 
   String? get os => _store.os;
 
+  String get appLanguage => _store.appLanguage;
+
   String get language => _store.language;
 
   String get version => _store.version;

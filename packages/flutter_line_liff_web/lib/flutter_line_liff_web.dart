@@ -61,6 +61,9 @@ class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
   String? get os => js.liff.getOS()?.toDart;
 
   @override
+  String get appLanguage => js.liff.getAppLanguage().toDart;
+
+  @override
   String get language => js.liff.getLanguage().toDart;
 
   @override

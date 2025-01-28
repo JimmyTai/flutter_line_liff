@@ -50,6 +50,8 @@ abstract class FlutterLineLiffPlatform {
 
   String? get os;
 
+  String get appLanguage;
+
   String get language;
 
   String get version;
