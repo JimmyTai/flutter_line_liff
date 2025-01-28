@@ -14,11 +14,28 @@ export 'uts_tracking.dart';
 
 part 'context.freezed.dart';
 
+enum ScreenType {
+  /// 1-on-1 chat.
+  utou,
+
+  /// Group chat.
+  group,
+
+  /// Multi-person chat.
+  room,
+
+  /// External browser.
+  external,
+
+  /// A screen other than a 1-on-1 chat, group chat, multi-person chat, or external browser. For example, Wallet tab.
+  none,
+}
+
 @freezed
 class Context with _$Context {
   const factory Context({
-    /// allow type = 'utou'|'room'|'group'|'none'|'square_chat'|'external'
-    required String type,
+    /// The type of screen from where the LIFF app was launched.
+    required ScreenType type,
     String? utouId,
     String? roomId,
     String? groupId,

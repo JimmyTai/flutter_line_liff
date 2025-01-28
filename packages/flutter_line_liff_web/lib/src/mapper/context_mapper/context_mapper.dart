@@ -17,7 +17,7 @@ export 'uts_tracking_mapper.dart';
 
 extension JSContextToContext on JSContext {
   Context get toDart => Context(
-        type: type.toDart,
+        type: _toScreenType(type.toDart),
         utouId: utouId?.toDart,
         roomId: roomId?.toDart,
         groupId: groupId?.toDart,
@@ -37,4 +37,21 @@ extension JSContextToContext on JSContext {
         menuColorSetting: menuColorSetting?.toDart,
         scope: scope.toDart.map((e) => e.toDart).toList(),
       );
+
+  ScreenType _toScreenType(String type) {
+    switch (type) {
+      case 'utou':
+        return ScreenType.utou;
+      case 'group':
+        return ScreenType.group;
+      case 'room':
+        return ScreenType.room;
+      case 'external':
+        return ScreenType.external;
+      case 'none':
+        return ScreenType.none;
+      default:
+        throw UnsupportedError('Unsupported ScreenType: $type');
+    }
+  }
 }

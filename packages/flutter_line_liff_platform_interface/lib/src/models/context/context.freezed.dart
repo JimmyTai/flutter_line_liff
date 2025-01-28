@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Context {
-  /// allow type = 'utou'|'room'|'group'|'none'|'square_chat'|'external'
-  String get type => throw _privateConstructorUsedError;
+  /// The type of screen from where the LIFF app was launched.
+  ScreenType get type => throw _privateConstructorUsedError;
   String? get utouId => throw _privateConstructorUsedError;
   String? get roomId => throw _privateConstructorUsedError;
   String? get groupId => throw _privateConstructorUsedError;
@@ -54,7 +54,7 @@ abstract class $ContextCopyWith<$Res> {
       _$ContextCopyWithImpl<$Res, Context>;
   @useResult
   $Res call(
-      {String type,
+      {ScreenType type,
       String? utouId,
       String? roomId,
       String? groupId,
@@ -120,7 +120,7 @@ class _$ContextCopyWithImpl<$Res, $Val extends Context>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ScreenType,
       utouId: freezed == utouId
           ? _value.utouId
           : utouId // ignore: cast_nullable_to_non_nullable
@@ -272,7 +272,7 @@ abstract class _$$ContextImplCopyWith<$Res> implements $ContextCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String type,
+      {ScreenType type,
       String? utouId,
       String? roomId,
       String? groupId,
@@ -341,7 +341,7 @@ class __$$ContextImplCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ScreenType,
       utouId: freezed == utouId
           ? _value.utouId
           : utouId // ignore: cast_nullable_to_non_nullable
@@ -443,9 +443,9 @@ class _$ContextImpl implements _Context {
       required final List<String> scope})
       : _scope = scope;
 
-  /// allow type = 'utou'|'room'|'group'|'none'|'square_chat'|'external'
+  /// The type of screen from where the LIFF app was launched.
   @override
-  final String type;
+  final ScreenType type;
   @override
   final String? utouId;
   @override
@@ -569,7 +569,7 @@ class _$ContextImpl implements _Context {
 
 abstract class _Context implements Context {
   const factory _Context(
-      {required final String type,
+      {required final ScreenType type,
       final String? utouId,
       final String? roomId,
       final String? groupId,
@@ -589,9 +589,9 @@ abstract class _Context implements Context {
       final LiffMenuColorSettings? menuColorSetting,
       required final List<String> scope}) = _$ContextImpl;
 
-  /// allow type = 'utou'|'room'|'group'|'none'|'square_chat'|'external'
+  /// The type of screen from where the LIFF app was launched.
   @override
-  String get type;
+  ScreenType get type;
   @override
   String? get utouId;
   @override
