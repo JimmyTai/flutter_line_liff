@@ -19,7 +19,7 @@ void main() {
           Fimber.d('LIFF init success.');
         },
         errorCallback: (e) {
-          Fimber.e('LIFF init error: ${e.name}, ${e.message}');
+          Fimber.e('LIFF init error: $e');
         },
       );
     },

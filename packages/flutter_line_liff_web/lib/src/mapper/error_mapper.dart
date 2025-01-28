@@ -6,8 +6,9 @@ import '../js/js.dart';
 
 extension JSErrorToLiffError on JSError {
   LiffException get toDart => LiffException(
-        name: name.toDart,
-        message: message.toDart,
+        code: code.toDart,
+        message: message?.toDart,
         stack: stack?.toDart,
+        cause: cause?.toDart,
       );
 }
