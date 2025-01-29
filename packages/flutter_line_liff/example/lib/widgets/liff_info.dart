@@ -10,7 +10,7 @@ class LiffInfo extends StatelessWidget {
     return Text(
       'ID: ${liff.id}\n\n'
       'OS: ${liff.os}\n\n'
-      'Language: ${liff.language}\n\n'
+      'Language: ${liff.appLanguage}\n\n'
       'Version: ${liff.version}\n\n'
       'LINE Version: ${liff.lineVersion ?? 'null'}\n\n'
       'Context: ${liff.context}\n\n'

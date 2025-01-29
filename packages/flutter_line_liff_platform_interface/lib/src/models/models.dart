@@ -14,5 +14,6 @@ export 'share_target_picker_options.dart';
 
 export 'permission_methods.dart';
 export 'permanent_link.dart';
+export 'i18n.dart';
 
 export 'liff_message/liff_message.dart';

@@ -100,4 +100,6 @@ class FlutterLineLiff {
   Future<ScanCodeResult> scanCode() => _store.scanCode();
 
   PermanentLinkPlatform get permanentLink => _store.permanentLink;
+
+  I18nPlatform get i18n => _store.i18n;
 }

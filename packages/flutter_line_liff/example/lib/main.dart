@@ -55,6 +55,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
+    FlutterLineLiff.instance.i18n.setLang('en').then((_) {
+      Fimber.d('set language success.');
+    }).catchError((e) {
+      Fimber.w('set language error: $e');
+    });
     FlutterLineLiff.instance.ready.then((_) {
       setState(() {
         _isInitDone = true;

@@ -107,4 +107,6 @@ abstract class FlutterLineLiffPlatform {
   Future<ScanCodeResult> scanCode();
 
   PermanentLinkPlatform get permanentLink;
+
+  I18nPlatform get i18n;
 }

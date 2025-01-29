@@ -5,6 +5,7 @@ import 'dart:js_interop';
 import 'config.dart';
 import 'context/context.dart';
 import 'friendship.dart';
+import 'i18n.dart';
 import 'jwt_payload.dart';
 import 'login_config.dart';
 import 'open_window_params.dart';
@@ -80,4 +81,6 @@ extension type JSLiff._(JSObject _) implements JSObject {
   external JSPromise<JSScanCodeResult> scanCode();
 
   external JSPermanentLink get permanentLink;
+
+  external JSI18n get i18n;
 }

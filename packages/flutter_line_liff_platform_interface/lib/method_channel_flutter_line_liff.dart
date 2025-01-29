@@ -106,4 +106,7 @@ class MethodChannelFlutterLineLiff extends FlutterLineLiffPlatform {
 
   @override
   PermanentLinkPlatform get permanentLink => throw UnimplementedError();
+
+  @override
+  I18nPlatform get i18n => throw UnimplementedError();
 }
