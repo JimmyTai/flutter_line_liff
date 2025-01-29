@@ -230,4 +230,14 @@ class FlutterLineLiff {
   PermanentLinkPlatform get permanentLink => _store.permanentLink;
 
   I18nPlatform get i18n => _store.i18n;
+
+  /// Displays a screen for adding a shortcut to your LINE MINI App to the home screen of the user's device.
+  ///
+  /// **Note: This feature can only be used for verified MINI Apps**
+  ///
+  /// ref: https://developers.line.biz/en/reference/liff/#create-shortcut-on-home-screen
+  Future<void> createShortcutOnHomeScreen({
+    required CreateShortcutOnHomeScreenParams params,
+  }) =>
+      _store.createShortcutOnHomeScreen(params: params);
 }

@@ -194,4 +194,14 @@ class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
 
   @override
   I18nPlatform get i18n => _i18n;
+
+  @override
+  Future<void> createShortcutOnHomeScreen({
+    required CreateShortcutOnHomeScreenParams params,
+  }) =>
+      js.liff
+          .createShortcutOnHomeScreen(params.toJS)
+          .toDart
+          .ignoreResult()
+          .handleLiffException();
 }

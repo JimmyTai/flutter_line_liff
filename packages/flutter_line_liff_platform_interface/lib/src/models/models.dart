@@ -11,6 +11,7 @@ export 'scan_code_result.dart';
 export 'login_config.dart';
 export 'open_window_params.dart';
 export 'share_target_picker_options.dart';
+export 'create_shortcut_on_home_screen_params.dart';
 
 export 'permission_methods.dart';
 export 'permanent_link.dart';

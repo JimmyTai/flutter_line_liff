@@ -109,4 +109,8 @@ abstract class FlutterLineLiffPlatform {
   PermanentLinkPlatform get permanentLink;
 
   I18nPlatform get i18n;
+
+  Future<void> createShortcutOnHomeScreen({
+    required CreateShortcutOnHomeScreenParams params,
+  });
 }

@@ -4,6 +4,7 @@ import 'dart:js_interop';
 
 import 'config.dart';
 import 'context/context.dart';
+import 'create_shortcut_on_home_screen_params.dart';
 import 'friendship.dart';
 import 'i18n.dart';
 import 'jwt_payload.dart';
@@ -83,4 +84,7 @@ extension type JSLiff._(JSObject _) implements JSObject {
   external JSPermanentLink get permanentLink;
 
   external JSI18n get i18n;
+
+  external JSPromise<JSAny?> createShortcutOnHomeScreen(
+      JSCreateShortcutOnHomeScreenParams params);
 }

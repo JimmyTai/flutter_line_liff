@@ -109,4 +109,10 @@ class MethodChannelFlutterLineLiff extends FlutterLineLiffPlatform {
 
   @override
   I18nPlatform get i18n => throw UnimplementedError();
+
+  @override
+  Future<void> createShortcutOnHomeScreen({
+    required CreateShortcutOnHomeScreenParams params,
+  }) =>
+      throw UnimplementedError();
 }
