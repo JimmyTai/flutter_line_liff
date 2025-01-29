@@ -16,7 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LiffMenuColorSettings {
-  List<String> get adaptableColorSchemes => throw _privateConstructorUsedError;
+  List<AdaptableColorScheme> get adaptableColorSchemes =>
+      throw _privateConstructorUsedError;
   LiffMenuColorSetting? get lightModeColor =>
       throw _privateConstructorUsedError;
   LiffMenuColorSetting? get dartModeColor => throw _privateConstructorUsedError;
@@ -35,7 +36,7 @@ abstract class $LiffMenuColorSettingsCopyWith<$Res> {
       _$LiffMenuColorSettingsCopyWithImpl<$Res, LiffMenuColorSettings>;
   @useResult
   $Res call(
-      {List<String> adaptableColorSchemes,
+      {List<AdaptableColorScheme> adaptableColorSchemes,
       LiffMenuColorSetting? lightModeColor,
       LiffMenuColorSetting? dartModeColor});
 
@@ -67,7 +68,7 @@ class _$LiffMenuColorSettingsCopyWithImpl<$Res,
       adaptableColorSchemes: null == adaptableColorSchemes
           ? _value.adaptableColorSchemes
           : adaptableColorSchemes // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<AdaptableColorScheme>,
       lightModeColor: freezed == lightModeColor
           ? _value.lightModeColor
           : lightModeColor // ignore: cast_nullable_to_non_nullable
@@ -118,7 +119,7 @@ abstract class _$$LiffMenuColorSettingsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<String> adaptableColorSchemes,
+      {List<AdaptableColorScheme> adaptableColorSchemes,
       LiffMenuColorSetting? lightModeColor,
       LiffMenuColorSetting? dartModeColor});
 
@@ -150,7 +151,7 @@ class __$$LiffMenuColorSettingsImplCopyWithImpl<$Res>
       adaptableColorSchemes: null == adaptableColorSchemes
           ? _value._adaptableColorSchemes
           : adaptableColorSchemes // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<AdaptableColorScheme>,
       lightModeColor: freezed == lightModeColor
           ? _value.lightModeColor
           : lightModeColor // ignore: cast_nullable_to_non_nullable
@@ -167,14 +168,14 @@ class __$$LiffMenuColorSettingsImplCopyWithImpl<$Res>
 
 class _$LiffMenuColorSettingsImpl implements _LiffMenuColorSettings {
   const _$LiffMenuColorSettingsImpl(
-      {required final List<String> adaptableColorSchemes,
+      {required final List<AdaptableColorScheme> adaptableColorSchemes,
       this.lightModeColor,
       this.dartModeColor})
       : _adaptableColorSchemes = adaptableColorSchemes;
 
-  final List<String> _adaptableColorSchemes;
+  final List<AdaptableColorScheme> _adaptableColorSchemes;
   @override
-  List<String> get adaptableColorSchemes {
+  List<AdaptableColorScheme> get adaptableColorSchemes {
     if (_adaptableColorSchemes is EqualUnmodifiableListView)
       return _adaptableColorSchemes;
     // ignore: implicit_dynamic_type
@@ -223,12 +224,12 @@ class _$LiffMenuColorSettingsImpl implements _LiffMenuColorSettings {
 
 abstract class _LiffMenuColorSettings implements LiffMenuColorSettings {
   const factory _LiffMenuColorSettings(
-      {required final List<String> adaptableColorSchemes,
+      {required final List<AdaptableColorScheme> adaptableColorSchemes,
       final LiffMenuColorSetting? lightModeColor,
       final LiffMenuColorSetting? dartModeColor}) = _$LiffMenuColorSettingsImpl;
 
   @override
-  List<String> get adaptableColorSchemes;
+  List<AdaptableColorScheme> get adaptableColorSchemes;
   @override
   LiffMenuColorSetting? get lightModeColor;
   @override
@@ -244,19 +245,29 @@ abstract class _LiffMenuColorSettings implements LiffMenuColorSettings {
 
 /// @nodoc
 mixin _$LiffMenuColorSetting {
+  /// The color of the header icon. The color is represented by a hexadecimal color code in the #RRGGBB format.
   String get iconColor => throw _privateConstructorUsedError;
 
-  /// allow color: 'BLACK' | 'WHITE'
+  /// Always returns white.
   String get statusBarColor => throw _privateConstructorUsedError;
+
+  /// The color of the header title text. The color is represented by a hexadecimal color code in the #RRGGBB format.
   String get titleTextColor => throw _privateConstructorUsedError;
+
+  /// The color of the header subtitle text. The color is represented by a hexadecimal color code in the #RRGGBB format.
   String get titleSubtextColor => throw _privateConstructorUsedError;
+
+  /// The color of the header button. The color is represented by a hexadecimal color code in the #RRGGBB format.
   String get titleButtonColor => throw _privateConstructorUsedError;
+
+  /// The header background color. The color is represented by a hexadecimal color code in the #RRGGBB format.
   String get titleBackgroundColor => throw _privateConstructorUsedError;
+
+  /// The color of the header progress bar. The color is represented by a hexadecimal color code in the #RRGGBB format.
   String get progressBarColor => throw _privateConstructorUsedError;
+
+  /// The background color of the header progress bar. The color is represented by a hexadecimal color code in the #RRGGBB format.
   String get progressBackgroundColor => throw _privateConstructorUsedError;
-  String get titleButtonAreaBackgroundColor =>
-      throw _privateConstructorUsedError;
-  String get titleButtonAreaBorderColor => throw _privateConstructorUsedError;
 
   /// Create a copy of LiffMenuColorSetting
   /// with the given fields replaced by the non-null parameter values.
@@ -279,9 +290,7 @@ abstract class $LiffMenuColorSettingCopyWith<$Res> {
       String titleButtonColor,
       String titleBackgroundColor,
       String progressBarColor,
-      String progressBackgroundColor,
-      String titleButtonAreaBackgroundColor,
-      String titleButtonAreaBorderColor});
+      String progressBackgroundColor});
 }
 
 /// @nodoc
@@ -308,8 +317,6 @@ class _$LiffMenuColorSettingCopyWithImpl<$Res,
     Object? titleBackgroundColor = null,
     Object? progressBarColor = null,
     Object? progressBackgroundColor = null,
-    Object? titleButtonAreaBackgroundColor = null,
-    Object? titleButtonAreaBorderColor = null,
   }) {
     return _then(_value.copyWith(
       iconColor: null == iconColor
@@ -344,14 +351,6 @@ class _$LiffMenuColorSettingCopyWithImpl<$Res,
           ? _value.progressBackgroundColor
           : progressBackgroundColor // ignore: cast_nullable_to_non_nullable
               as String,
-      titleButtonAreaBackgroundColor: null == titleButtonAreaBackgroundColor
-          ? _value.titleButtonAreaBackgroundColor
-          : titleButtonAreaBackgroundColor // ignore: cast_nullable_to_non_nullable
-              as String,
-      titleButtonAreaBorderColor: null == titleButtonAreaBorderColor
-          ? _value.titleButtonAreaBorderColor
-          : titleButtonAreaBorderColor // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
@@ -372,9 +371,7 @@ abstract class _$$LiffMenuColorSettingImplCopyWith<$Res>
       String titleButtonColor,
       String titleBackgroundColor,
       String progressBarColor,
-      String progressBackgroundColor,
-      String titleButtonAreaBackgroundColor,
-      String titleButtonAreaBorderColor});
+      String progressBackgroundColor});
 }
 
 /// @nodoc
@@ -398,8 +395,6 @@ class __$$LiffMenuColorSettingImplCopyWithImpl<$Res>
     Object? titleBackgroundColor = null,
     Object? progressBarColor = null,
     Object? progressBackgroundColor = null,
-    Object? titleButtonAreaBackgroundColor = null,
-    Object? titleButtonAreaBorderColor = null,
   }) {
     return _then(_$LiffMenuColorSettingImpl(
       iconColor: null == iconColor
@@ -434,14 +429,6 @@ class __$$LiffMenuColorSettingImplCopyWithImpl<$Res>
           ? _value.progressBackgroundColor
           : progressBackgroundColor // ignore: cast_nullable_to_non_nullable
               as String,
-      titleButtonAreaBackgroundColor: null == titleButtonAreaBackgroundColor
-          ? _value.titleButtonAreaBackgroundColor
-          : titleButtonAreaBackgroundColor // ignore: cast_nullable_to_non_nullable
-              as String,
-      titleButtonAreaBorderColor: null == titleButtonAreaBorderColor
-          ? _value.titleButtonAreaBorderColor
-          : titleButtonAreaBorderColor // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -457,36 +444,43 @@ class _$LiffMenuColorSettingImpl implements _LiffMenuColorSetting {
       required this.titleButtonColor,
       required this.titleBackgroundColor,
       required this.progressBarColor,
-      required this.progressBackgroundColor,
-      required this.titleButtonAreaBackgroundColor,
-      required this.titleButtonAreaBorderColor});
+      required this.progressBackgroundColor});
 
+  /// The color of the header icon. The color is represented by a hexadecimal color code in the #RRGGBB format.
   @override
   final String iconColor;
 
-  /// allow color: 'BLACK' | 'WHITE'
+  /// Always returns white.
   @override
   final String statusBarColor;
+
+  /// The color of the header title text. The color is represented by a hexadecimal color code in the #RRGGBB format.
   @override
   final String titleTextColor;
+
+  /// The color of the header subtitle text. The color is represented by a hexadecimal color code in the #RRGGBB format.
   @override
   final String titleSubtextColor;
+
+  /// The color of the header button. The color is represented by a hexadecimal color code in the #RRGGBB format.
   @override
   final String titleButtonColor;
+
+  /// The header background color. The color is represented by a hexadecimal color code in the #RRGGBB format.
   @override
   final String titleBackgroundColor;
+
+  /// The color of the header progress bar. The color is represented by a hexadecimal color code in the #RRGGBB format.
   @override
   final String progressBarColor;
+
+  /// The background color of the header progress bar. The color is represented by a hexadecimal color code in the #RRGGBB format.
   @override
   final String progressBackgroundColor;
-  @override
-  final String titleButtonAreaBackgroundColor;
-  @override
-  final String titleButtonAreaBorderColor;
 
   @override
   String toString() {
-    return 'LiffMenuColorSetting(iconColor: $iconColor, statusBarColor: $statusBarColor, titleTextColor: $titleTextColor, titleSubtextColor: $titleSubtextColor, titleButtonColor: $titleButtonColor, titleBackgroundColor: $titleBackgroundColor, progressBarColor: $progressBarColor, progressBackgroundColor: $progressBackgroundColor, titleButtonAreaBackgroundColor: $titleButtonAreaBackgroundColor, titleButtonAreaBorderColor: $titleButtonAreaBorderColor)';
+    return 'LiffMenuColorSetting(iconColor: $iconColor, statusBarColor: $statusBarColor, titleTextColor: $titleTextColor, titleSubtextColor: $titleSubtextColor, titleButtonColor: $titleButtonColor, titleBackgroundColor: $titleBackgroundColor, progressBarColor: $progressBarColor, progressBackgroundColor: $progressBackgroundColor)';
   }
 
   @override
@@ -510,15 +504,7 @@ class _$LiffMenuColorSettingImpl implements _LiffMenuColorSetting {
                 other.progressBarColor == progressBarColor) &&
             (identical(
                     other.progressBackgroundColor, progressBackgroundColor) ||
-                other.progressBackgroundColor == progressBackgroundColor) &&
-            (identical(other.titleButtonAreaBackgroundColor,
-                    titleButtonAreaBackgroundColor) ||
-                other.titleButtonAreaBackgroundColor ==
-                    titleButtonAreaBackgroundColor) &&
-            (identical(other.titleButtonAreaBorderColor,
-                    titleButtonAreaBorderColor) ||
-                other.titleButtonAreaBorderColor ==
-                    titleButtonAreaBorderColor));
+                other.progressBackgroundColor == progressBackgroundColor));
   }
 
   @override
@@ -531,9 +517,7 @@ class _$LiffMenuColorSettingImpl implements _LiffMenuColorSetting {
       titleButtonColor,
       titleBackgroundColor,
       progressBarColor,
-      progressBackgroundColor,
-      titleButtonAreaBackgroundColor,
-      titleButtonAreaBorderColor);
+      progressBackgroundColor);
 
   /// Create a copy of LiffMenuColorSetting
   /// with the given fields replaced by the non-null parameter values.
@@ -555,33 +539,40 @@ abstract class _LiffMenuColorSetting implements LiffMenuColorSetting {
           required final String titleButtonColor,
           required final String titleBackgroundColor,
           required final String progressBarColor,
-          required final String progressBackgroundColor,
-          required final String titleButtonAreaBackgroundColor,
-          required final String titleButtonAreaBorderColor}) =
+          required final String progressBackgroundColor}) =
       _$LiffMenuColorSettingImpl;
 
+  /// The color of the header icon. The color is represented by a hexadecimal color code in the #RRGGBB format.
   @override
   String get iconColor;
 
-  /// allow color: 'BLACK' | 'WHITE'
+  /// Always returns white.
   @override
   String get statusBarColor;
+
+  /// The color of the header title text. The color is represented by a hexadecimal color code in the #RRGGBB format.
   @override
   String get titleTextColor;
+
+  /// The color of the header subtitle text. The color is represented by a hexadecimal color code in the #RRGGBB format.
   @override
   String get titleSubtextColor;
+
+  /// The color of the header button. The color is represented by a hexadecimal color code in the #RRGGBB format.
   @override
   String get titleButtonColor;
+
+  /// The header background color. The color is represented by a hexadecimal color code in the #RRGGBB format.
   @override
   String get titleBackgroundColor;
+
+  /// The color of the header progress bar. The color is represented by a hexadecimal color code in the #RRGGBB format.
   @override
   String get progressBarColor;
+
+  /// The background color of the header progress bar. The color is represented by a hexadecimal color code in the #RRGGBB format.
   @override
   String get progressBackgroundColor;
-  @override
-  String get titleButtonAreaBackgroundColor;
-  @override
-  String get titleButtonAreaBorderColor;
 
   /// Create a copy of LiffMenuColorSetting
   /// with the given fields replaced by the non-null parameter values.

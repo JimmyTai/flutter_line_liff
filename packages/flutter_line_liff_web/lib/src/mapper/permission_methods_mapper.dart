@@ -20,8 +20,8 @@ extension JSPermissionStatusToPermissionStatus on JSPermissionStatus {
           'granted' => PermissionState.granted,
           'prompt' => PermissionState.prompt,
           'unavailable' => PermissionState.unavailable,
-          _ => throw FormatException(
-              'Not supported PermissionState: ${state.toDart}'),
+          _ => throw UnsupportedError(
+              'Unsupported PermissionState: ${state.toDart}'),
         },
       );
 }

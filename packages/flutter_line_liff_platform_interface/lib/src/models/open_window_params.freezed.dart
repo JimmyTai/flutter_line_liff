@@ -16,7 +16,13 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$OpenWindowParams {
+  /// URL. Specify a full URL.
   String get url => throw _privateConstructorUsedError;
+
+  /// Whether to open the URL in an external browser.
+  ///
+  /// - true: Opens the URL in an external browser.
+  /// - false: Opens the URL in the LINE's in-app browser.
   bool? get external => throw _privateConstructorUsedError;
 
   /// Create a copy of OpenWindowParams
@@ -111,8 +117,14 @@ class __$$OpenWindowParamsImplCopyWithImpl<$Res>
 class _$OpenWindowParamsImpl implements _OpenWindowParams {
   const _$OpenWindowParamsImpl({required this.url, this.external});
 
+  /// URL. Specify a full URL.
   @override
   final String url;
+
+  /// Whether to open the URL in an external browser.
+  ///
+  /// - true: Opens the URL in an external browser.
+  /// - false: Opens the URL in the LINE's in-app browser.
   @override
   final bool? external;
 
@@ -149,8 +161,14 @@ abstract class _OpenWindowParams implements OpenWindowParams {
       {required final String url,
       final bool? external}) = _$OpenWindowParamsImpl;
 
+  /// URL. Specify a full URL.
   @override
   String get url;
+
+  /// Whether to open the URL in an external browser.
+  ///
+  /// - true: Opens the URL in an external browser.
+  /// - false: Opens the URL in the LINE's in-app browser.
   @override
   bool? get external;
 

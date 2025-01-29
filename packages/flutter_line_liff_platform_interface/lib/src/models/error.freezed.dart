@@ -16,9 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LiffException {
-  String get name => throw _privateConstructorUsedError;
-  String get message => throw _privateConstructorUsedError;
+  String get code => throw _privateConstructorUsedError;
+  String? get message => throw _privateConstructorUsedError;
   String? get stack => throw _privateConstructorUsedError;
+  String? get cause => throw _privateConstructorUsedError;
 
   /// Create a copy of LiffException
   /// with the given fields replaced by the non-null parameter values.
@@ -33,7 +34,7 @@ abstract class $LiffExceptionCopyWith<$Res> {
           LiffException value, $Res Function(LiffException) then) =
       _$LiffExceptionCopyWithImpl<$Res, LiffException>;
   @useResult
-  $Res call({String name, String message, String? stack});
+  $Res call({String code, String? message, String? stack, String? cause});
 }
 
 /// @nodoc
@@ -51,22 +52,27 @@ class _$LiffExceptionCopyWithImpl<$Res, $Val extends LiffException>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? message = null,
+    Object? code = null,
+    Object? message = freezed,
     Object? stack = freezed,
+    Object? cause = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      code: null == code
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String,
-      message: null == message
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       stack: freezed == stack
           ? _value.stack
           : stack // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cause: freezed == cause
+          ? _value.cause
+          : cause // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -80,7 +86,7 @@ abstract class _$$LiffExceptionImplCopyWith<$Res>
       __$$LiffExceptionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String message, String? stack});
+  $Res call({String code, String? message, String? stack, String? cause});
 }
 
 /// @nodoc
@@ -96,22 +102,27 @@ class __$$LiffExceptionImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? message = null,
+    Object? code = null,
+    Object? message = freezed,
     Object? stack = freezed,
+    Object? cause = freezed,
   }) {
     return _then(_$LiffExceptionImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      code: null == code
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String,
-      message: null == message
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       stack: freezed == stack
           ? _value.stack
           : stack // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cause: freezed == cause
+          ? _value.cause
+          : cause // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -121,18 +132,20 @@ class __$$LiffExceptionImplCopyWithImpl<$Res>
 
 class _$LiffExceptionImpl implements _LiffException {
   const _$LiffExceptionImpl(
-      {required this.name, required this.message, this.stack});
+      {required this.code, this.message, this.stack, this.cause});
 
   @override
-  final String name;
+  final String code;
   @override
-  final String message;
+  final String? message;
   @override
   final String? stack;
+  @override
+  final String? cause;
 
   @override
   String toString() {
-    return 'LiffException(name: $name, message: $message, stack: $stack)';
+    return 'LiffException(code: $code, message: $message, stack: $stack, cause: $cause)';
   }
 
   @override
@@ -140,13 +153,14 @@ class _$LiffExceptionImpl implements _LiffException {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LiffExceptionImpl &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.code, code) || other.code == code) &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.stack, stack) || other.stack == stack));
+            (identical(other.stack, stack) || other.stack == stack) &&
+            (identical(other.cause, cause) || other.cause == cause));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, message, stack);
+  int get hashCode => Object.hash(runtimeType, code, message, stack, cause);
 
   /// Create a copy of LiffException
   /// with the given fields replaced by the non-null parameter values.
@@ -159,16 +173,19 @@ class _$LiffExceptionImpl implements _LiffException {
 
 abstract class _LiffException implements LiffException {
   const factory _LiffException(
-      {required final String name,
-      required final String message,
-      final String? stack}) = _$LiffExceptionImpl;
+      {required final String code,
+      final String? message,
+      final String? stack,
+      final String? cause}) = _$LiffExceptionImpl;
 
   @override
-  String get name;
+  String get code;
   @override
-  String get message;
+  String? get message;
   @override
   String? get stack;
+  @override
+  String? get cause;
 
   /// Create a copy of LiffException
   /// with the given fields replaced by the non-null parameter values.
