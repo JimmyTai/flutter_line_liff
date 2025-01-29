@@ -16,6 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LoginConfig {
+  /// URL to open in the LIFF app after logging in.
+  /// The default value is the URL set in Endpoint URL.
+  ///
+  /// If the URL specified in redirectUri doesn't start with the URL specified in Endpoint URL,
+  /// the login process fails and an error screen is displayed.
   String? get redirectUri => throw _privateConstructorUsedError;
 
   /// Create a copy of LoginConfig
@@ -100,6 +105,11 @@ class __$$LoginConfigImplCopyWithImpl<$Res>
 class _$LoginConfigImpl implements _LoginConfig {
   const _$LoginConfigImpl({this.redirectUri});
 
+  /// URL to open in the LIFF app after logging in.
+  /// The default value is the URL set in Endpoint URL.
+  ///
+  /// If the URL specified in redirectUri doesn't start with the URL specified in Endpoint URL,
+  /// the login process fails and an error screen is displayed.
   @override
   final String? redirectUri;
 
@@ -132,6 +142,11 @@ class _$LoginConfigImpl implements _LoginConfig {
 abstract class _LoginConfig implements LoginConfig {
   const factory _LoginConfig({final String? redirectUri}) = _$LoginConfigImpl;
 
+  /// URL to open in the LIFF app after logging in.
+  /// The default value is the URL set in Endpoint URL.
+  ///
+  /// If the URL specified in redirectUri doesn't start with the URL specified in Endpoint URL,
+  /// the login process fails and an error screen is displayed.
   @override
   String? get redirectUri;
 

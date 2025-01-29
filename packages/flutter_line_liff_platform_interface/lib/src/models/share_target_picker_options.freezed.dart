@@ -16,6 +16,13 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ShareTargetPickerOptions {
+  /// Specifies whether or not to allow users to select multiple message recipients through the target picker,
+  /// using either of these values.
+  ///
+  /// The default value is true.
+  ///
+  /// - true: Users can select multiple recipients from their groups, friends, and chats.
+  /// - false: Users can select only one of their friends as the recipient.
   bool? get isMultiple => throw _privateConstructorUsedError;
 
   /// Create a copy of ShareTargetPickerOptions
@@ -104,6 +111,13 @@ class __$$ShareTargetPickerOptionsImplCopyWithImpl<$Res>
 class _$ShareTargetPickerOptionsImpl implements _ShareTargetPickerOptions {
   const _$ShareTargetPickerOptionsImpl({this.isMultiple});
 
+  /// Specifies whether or not to allow users to select multiple message recipients through the target picker,
+  /// using either of these values.
+  ///
+  /// The default value is true.
+  ///
+  /// - true: Users can select multiple recipients from their groups, friends, and chats.
+  /// - false: Users can select only one of their friends as the recipient.
   @override
   final bool? isMultiple;
 
@@ -138,6 +152,13 @@ abstract class _ShareTargetPickerOptions implements ShareTargetPickerOptions {
   const factory _ShareTargetPickerOptions({final bool? isMultiple}) =
       _$ShareTargetPickerOptionsImpl;
 
+  /// Specifies whether or not to allow users to select multiple message recipients through the target picker,
+  /// using either of these values.
+  ///
+  /// The default value is true.
+  ///
+  /// - true: Users can select multiple recipients from their groups, friends, and chats.
+  /// - false: Users can select only one of their friends as the recipient.
   @override
   bool? get isMultiple;
 
