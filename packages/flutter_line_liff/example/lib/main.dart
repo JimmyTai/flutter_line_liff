@@ -166,6 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             FlutterLineLiff.instance
                                 .scanCodeV2()
                                 .then((result) {
+                              Fimber.d('Scan QR code V2 result: $result');
                               setState(() {
                                 _qrCodeV2Value = result.value;
                               });
