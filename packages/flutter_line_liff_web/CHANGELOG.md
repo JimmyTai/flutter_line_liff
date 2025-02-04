@@ -1,3 +1,8 @@
+## 1.0.0
+Breaking Changes:
+* Migrate to "dart:js_interop" to support WASM.
+* Upgrade LINE LIFF dependency to 2.25.1.
+
 ## 0.1.0
 
 * Using Melos for mono-repo management.

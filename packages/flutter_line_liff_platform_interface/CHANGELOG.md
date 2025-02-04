@@ -1,3 +1,9 @@
+## 1.0.0
+Breaking Changes:
+* Remove "package:js" dependency.
+* Migrate models to pure dart without js interop.
+* Upgrade LINE LIFF dependency to 2.25.1.
+
 ## 0.1.0
 
 * Using Melos for mono-repo management.
