@@ -1,6 +1,6 @@
 name: example
 description: Example project for flutter_line_liff.
-version: 1.0.0+1
+version: 1.0.0
 publish_to: none
 
 environment:
@@ -12,7 +12,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.8
 
-  flutter_line_liff: ^1.0.0
+  flutter_line_liff: ^1.0.0+1
   fimber: ^0.7.0
   fconsole: ^2.6.2
 
