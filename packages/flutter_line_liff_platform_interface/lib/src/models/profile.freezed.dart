@@ -16,9 +16,16 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Profile {
+  /// User ID
   String get userId => throw _privateConstructorUsedError;
+
+  /// Display name
   String get displayName => throw _privateConstructorUsedError;
+
+  /// Image URL. This property is not returned if it has not been set by the user.
   String? get pictureUrl => throw _privateConstructorUsedError;
+
+  /// Status message. This property is not returned if it has not been set by the user.
   String? get statusMessage => throw _privateConstructorUsedError;
 
   /// Create a copy of Profile
@@ -142,12 +149,19 @@ class _$ProfileImpl implements _Profile {
       this.pictureUrl,
       this.statusMessage});
 
+  /// User ID
   @override
   final String userId;
+
+  /// Display name
   @override
   final String displayName;
+
+  /// Image URL. This property is not returned if it has not been set by the user.
   @override
   final String? pictureUrl;
+
+  /// Status message. This property is not returned if it has not been set by the user.
   @override
   final String? statusMessage;
 
@@ -190,12 +204,19 @@ abstract class _Profile implements Profile {
       final String? pictureUrl,
       final String? statusMessage}) = _$ProfileImpl;
 
+  /// User ID
   @override
   String get userId;
+
+  /// Display name
   @override
   String get displayName;
+
+  /// Image URL. This property is not returned if it has not been set by the user.
   @override
   String? get pictureUrl;
+
+  /// Status message. This property is not returned if it has not been set by the user.
   @override
   String? get statusMessage;
 

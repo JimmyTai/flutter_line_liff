@@ -15,14 +15,20 @@ extension JSAvailabilitiesToAvailabilities on JSAvailabilities {
         addToHomeScreen: addToHomeScreen.toDart,
         bluetoothLeFunction: bluetoothLeFunction.toDart,
         skipChannelVerificationScreen: skipChannelVerificationScreen.toDart,
+        addToHomeV2: addToHomeV2.toDart,
+        addToHomeHideDomain: addToHomeHideDomain.toDart,
+        addToHomeLineScheme: addToHomeLineScheme.toDart,
       );
 }
 
 extension JSAvailabilityToAvailability on JSAvailability {
   Availability get toDart => Availability(
         permission: permission.toDart,
-        minVer: minVer.toDart,
-        minOsVer: minOsVer?.toDart,
+        minVer: minVer?.toDart,
+        maxVer: maxVer?.toDart,
         unsupportedFromVer: unsupportedFromVer?.toDart,
+        minOsVer: minOsVer?.toDart,
+        maxOsVer: maxOsVer?.toDart,
+        unsupportedFromOsVer: unsupportedFromOsVer?.toDart,
       );
 }

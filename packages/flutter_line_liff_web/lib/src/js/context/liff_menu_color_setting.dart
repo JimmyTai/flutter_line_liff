@@ -13,7 +13,9 @@ extension type JSLiffMenuColorSettings._(JSObject _) implements JSObject {
 extension type JSLiffMenuColorSetting._(JSObject _) implements JSObject {
   external JSString get iconColor;
 
-  /// allow color: 'BLACK' | 'WHITE'
+  /// Could be one of 'BLACK' | 'WHITE'
+  ///
+  /// **Now always return WHITE**
   external JSString get statusBarColor;
 
   external JSString get titleTextColor;
@@ -27,8 +29,4 @@ extension type JSLiffMenuColorSetting._(JSObject _) implements JSObject {
   external JSString get progressBarColor;
 
   external JSString get progressBackgroundColor;
-
-  external JSString? get titleButtonAreaBackgroundColor;
-
-  external JSString? get titleButtonAreaBorderColor;
 }

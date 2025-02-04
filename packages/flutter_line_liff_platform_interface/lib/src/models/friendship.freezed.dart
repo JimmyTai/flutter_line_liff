@@ -16,6 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Friendship {
+  /// - true: The user has added the LINE Official Account as a friend and has not blocked it.
+  /// - Otherwise, false.
   bool get friendFlag => throw _privateConstructorUsedError;
 
   /// Create a copy of Friendship
@@ -100,6 +102,8 @@ class __$$FriendshipImplCopyWithImpl<$Res>
 class _$FriendshipImpl implements _Friendship {
   const _$FriendshipImpl({required this.friendFlag});
 
+  /// - true: The user has added the LINE Official Account as a friend and has not blocked it.
+  /// - Otherwise, false.
   @override
   final bool friendFlag;
 
@@ -133,6 +137,8 @@ abstract class _Friendship implements Friendship {
   const factory _Friendship({required final bool friendFlag}) =
       _$FriendshipImpl;
 
+  /// - true: The user has added the LINE Official Account as a friend and has not blocked it.
+  /// - Otherwise, false.
   @override
   bool get friendFlag;
 

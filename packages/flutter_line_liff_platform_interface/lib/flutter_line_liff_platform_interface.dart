@@ -50,6 +50,8 @@ abstract class FlutterLineLiffPlatform {
 
   String? get os;
 
+  String get appLanguage;
+
   String get language;
 
   String get version;
@@ -105,4 +107,10 @@ abstract class FlutterLineLiffPlatform {
   Future<ScanCodeResult> scanCode();
 
   PermanentLinkPlatform get permanentLink;
+
+  I18nPlatform get i18n;
+
+  Future<void> createShortcutOnHomeScreen({
+    required CreateShortcutOnHomeScreenParams params,
+  });
 }

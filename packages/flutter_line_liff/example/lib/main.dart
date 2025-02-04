@@ -19,7 +19,7 @@ void main() {
           Fimber.d('LIFF init success.');
         },
         errorCallback: (e) {
-          Fimber.e('LIFF init error: ${e.name}, ${e.message}');
+          Fimber.e('LIFF init error: $e');
         },
       );
     },
@@ -55,6 +55,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
+    FlutterLineLiff.instance.i18n.setLang('en').then((_) {
+      Fimber.d('set language success.');
+    }).catchError((e) {
+      Fimber.w('set language error: $e');
+    });
     FlutterLineLiff.instance.ready.then((_) {
       setState(() {
         _isInitDone = true;
@@ -161,6 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             FlutterLineLiff.instance
                                 .scanCodeV2()
                                 .then((result) {
+                              Fimber.d('Scan QR code V2 result: $result');
                               setState(() {
                                 _qrCodeV2Value = result.value;
                               });

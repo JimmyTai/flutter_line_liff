@@ -9,8 +9,8 @@ extension JSShareTargetPickerResultToShareTargetPickerResult
   ShareTargetPickerResult get toDart => ShareTargetPickerResult(
         status: switch (status.toDart) {
           'success' => ShareTargetPickerStatus.success,
-          _ => throw FormatException(
-              'Not supported ShareTargetPickerStatus: ${status.toDart}'),
+          _ => throw UnsupportedError(
+              'Unsupported ShareTargetPickerStatus: ${status.toDart}'),
         },
       );
 }

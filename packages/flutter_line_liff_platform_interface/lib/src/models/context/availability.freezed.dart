@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'availabilities.dart';
+part of 'availability.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -16,16 +16,53 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Availabilities {
+  /// Whether liff.shareTargetPicker() is available in the environment in which the LIFF app was launched.
   Availability get shareTargetPicker => throw _privateConstructorUsedError;
+
+  /// Whether it's possible to transition to another LIFF app with liff.openWindow()
+  /// without closing the LIFF app within the LIFF browser in the environment in which the LIFF app was launched.
   Availability get multipleLiffTransition => throw _privateConstructorUsedError;
+
+  /// Whether the subwindow is available in the environment in which the LIFF app was launched.
   Availability get subwindowOpen => throw _privateConstructorUsedError;
+
+  /// Whether liff.scanCode() is available in the environment in which the LIFF app was launched.
   Availability get scanCode => throw _privateConstructorUsedError;
+
+  /// Whether liff.scanCodeV2() is available in the environment in which the LIFF app was launched.
   Availability get scanCodeV2 => throw _privateConstructorUsedError;
+
+  /// Whether liff.getAid() is available in the environment in which the LIFF app was launched.
+  ///
+  /// **Note that we currently don't provide liff.getAid().**
   Availability get getAdvertisingId => throw _privateConstructorUsedError;
+
+  /// Whether liff.addToHomeScreen() is available in the environment in which the LIFF app was launched.
+  ///
+  /// **Note that we currently don't provide liff.addToHomeScreen().**
   Availability get addToHomeScreen => throw _privateConstructorUsedError;
+
+  /// Whether Bluetooth® Low Energy for LINE Things is available in the environment in which the LIFF app was launched.
+  ///
+  /// **Note that we currently don't provide this feature.**
   Availability get bluetoothLeFunction => throw _privateConstructorUsedError;
+
+  /// Whether the "Channel consent simplification" feature is available in the environment in which the LIFF app was launched.
   Availability get skipChannelVerificationScreen =>
       throw _privateConstructorUsedError;
+
+  /// Whether liff.createShortcutOnHomeScreen() is available in the environment in which the LIFF app was launched.
+  Availability get addToHomeV2 => throw _privateConstructorUsedError;
+
+  /// Whether the endpoint URL can be hidden when displaying a screen for adding a shortcut to the home screen of the user's device.
+  ///
+  /// **Note that we currently don't provide this feature.**
+  Availability get addToHomeHideDomain => throw _privateConstructorUsedError;
+
+  /// Whether creating a shortcut specifying the LINE URL scheme is available.
+  ///
+  /// **Note that we currently don't provide this feature.**
+  Availability get addToHomeLineScheme => throw _privateConstructorUsedError;
 
   /// Create a copy of Availabilities
   /// with the given fields replaced by the non-null parameter values.
@@ -49,7 +86,10 @@ abstract class $AvailabilitiesCopyWith<$Res> {
       Availability getAdvertisingId,
       Availability addToHomeScreen,
       Availability bluetoothLeFunction,
-      Availability skipChannelVerificationScreen});
+      Availability skipChannelVerificationScreen,
+      Availability addToHomeV2,
+      Availability addToHomeHideDomain,
+      Availability addToHomeLineScheme});
 
   $AvailabilityCopyWith<$Res> get shareTargetPicker;
   $AvailabilityCopyWith<$Res> get multipleLiffTransition;
@@ -60,6 +100,9 @@ abstract class $AvailabilitiesCopyWith<$Res> {
   $AvailabilityCopyWith<$Res> get addToHomeScreen;
   $AvailabilityCopyWith<$Res> get bluetoothLeFunction;
   $AvailabilityCopyWith<$Res> get skipChannelVerificationScreen;
+  $AvailabilityCopyWith<$Res> get addToHomeV2;
+  $AvailabilityCopyWith<$Res> get addToHomeHideDomain;
+  $AvailabilityCopyWith<$Res> get addToHomeLineScheme;
 }
 
 /// @nodoc
@@ -86,6 +129,9 @@ class _$AvailabilitiesCopyWithImpl<$Res, $Val extends Availabilities>
     Object? addToHomeScreen = null,
     Object? bluetoothLeFunction = null,
     Object? skipChannelVerificationScreen = null,
+    Object? addToHomeV2 = null,
+    Object? addToHomeHideDomain = null,
+    Object? addToHomeLineScheme = null,
   }) {
     return _then(_value.copyWith(
       shareTargetPicker: null == shareTargetPicker
@@ -123,6 +169,18 @@ class _$AvailabilitiesCopyWithImpl<$Res, $Val extends Availabilities>
       skipChannelVerificationScreen: null == skipChannelVerificationScreen
           ? _value.skipChannelVerificationScreen
           : skipChannelVerificationScreen // ignore: cast_nullable_to_non_nullable
+              as Availability,
+      addToHomeV2: null == addToHomeV2
+          ? _value.addToHomeV2
+          : addToHomeV2 // ignore: cast_nullable_to_non_nullable
+              as Availability,
+      addToHomeHideDomain: null == addToHomeHideDomain
+          ? _value.addToHomeHideDomain
+          : addToHomeHideDomain // ignore: cast_nullable_to_non_nullable
+              as Availability,
+      addToHomeLineScheme: null == addToHomeLineScheme
+          ? _value.addToHomeLineScheme
+          : addToHomeLineScheme // ignore: cast_nullable_to_non_nullable
               as Availability,
     ) as $Val);
   }
@@ -218,6 +276,36 @@ class _$AvailabilitiesCopyWithImpl<$Res, $Val extends Availabilities>
           _value.copyWith(skipChannelVerificationScreen: value) as $Val);
     });
   }
+
+  /// Create a copy of Availabilities
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AvailabilityCopyWith<$Res> get addToHomeV2 {
+    return $AvailabilityCopyWith<$Res>(_value.addToHomeV2, (value) {
+      return _then(_value.copyWith(addToHomeV2: value) as $Val);
+    });
+  }
+
+  /// Create a copy of Availabilities
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AvailabilityCopyWith<$Res> get addToHomeHideDomain {
+    return $AvailabilityCopyWith<$Res>(_value.addToHomeHideDomain, (value) {
+      return _then(_value.copyWith(addToHomeHideDomain: value) as $Val);
+    });
+  }
+
+  /// Create a copy of Availabilities
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AvailabilityCopyWith<$Res> get addToHomeLineScheme {
+    return $AvailabilityCopyWith<$Res>(_value.addToHomeLineScheme, (value) {
+      return _then(_value.copyWith(addToHomeLineScheme: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -237,7 +325,10 @@ abstract class _$$AvailabilitiesImplCopyWith<$Res>
       Availability getAdvertisingId,
       Availability addToHomeScreen,
       Availability bluetoothLeFunction,
-      Availability skipChannelVerificationScreen});
+      Availability skipChannelVerificationScreen,
+      Availability addToHomeV2,
+      Availability addToHomeHideDomain,
+      Availability addToHomeLineScheme});
 
   @override
   $AvailabilityCopyWith<$Res> get shareTargetPicker;
@@ -257,6 +348,12 @@ abstract class _$$AvailabilitiesImplCopyWith<$Res>
   $AvailabilityCopyWith<$Res> get bluetoothLeFunction;
   @override
   $AvailabilityCopyWith<$Res> get skipChannelVerificationScreen;
+  @override
+  $AvailabilityCopyWith<$Res> get addToHomeV2;
+  @override
+  $AvailabilityCopyWith<$Res> get addToHomeHideDomain;
+  @override
+  $AvailabilityCopyWith<$Res> get addToHomeLineScheme;
 }
 
 /// @nodoc
@@ -281,6 +378,9 @@ class __$$AvailabilitiesImplCopyWithImpl<$Res>
     Object? addToHomeScreen = null,
     Object? bluetoothLeFunction = null,
     Object? skipChannelVerificationScreen = null,
+    Object? addToHomeV2 = null,
+    Object? addToHomeHideDomain = null,
+    Object? addToHomeLineScheme = null,
   }) {
     return _then(_$AvailabilitiesImpl(
       shareTargetPicker: null == shareTargetPicker
@@ -319,6 +419,18 @@ class __$$AvailabilitiesImplCopyWithImpl<$Res>
           ? _value.skipChannelVerificationScreen
           : skipChannelVerificationScreen // ignore: cast_nullable_to_non_nullable
               as Availability,
+      addToHomeV2: null == addToHomeV2
+          ? _value.addToHomeV2
+          : addToHomeV2 // ignore: cast_nullable_to_non_nullable
+              as Availability,
+      addToHomeHideDomain: null == addToHomeHideDomain
+          ? _value.addToHomeHideDomain
+          : addToHomeHideDomain // ignore: cast_nullable_to_non_nullable
+              as Availability,
+      addToHomeLineScheme: null == addToHomeLineScheme
+          ? _value.addToHomeLineScheme
+          : addToHomeLineScheme // ignore: cast_nullable_to_non_nullable
+              as Availability,
     ));
   }
 }
@@ -335,30 +447,73 @@ class _$AvailabilitiesImpl implements _Availabilities {
       required this.getAdvertisingId,
       required this.addToHomeScreen,
       required this.bluetoothLeFunction,
-      required this.skipChannelVerificationScreen});
+      required this.skipChannelVerificationScreen,
+      required this.addToHomeV2,
+      required this.addToHomeHideDomain,
+      required this.addToHomeLineScheme});
 
+  /// Whether liff.shareTargetPicker() is available in the environment in which the LIFF app was launched.
   @override
   final Availability shareTargetPicker;
+
+  /// Whether it's possible to transition to another LIFF app with liff.openWindow()
+  /// without closing the LIFF app within the LIFF browser in the environment in which the LIFF app was launched.
   @override
   final Availability multipleLiffTransition;
+
+  /// Whether the subwindow is available in the environment in which the LIFF app was launched.
   @override
   final Availability subwindowOpen;
+
+  /// Whether liff.scanCode() is available in the environment in which the LIFF app was launched.
   @override
   final Availability scanCode;
+
+  /// Whether liff.scanCodeV2() is available in the environment in which the LIFF app was launched.
   @override
   final Availability scanCodeV2;
+
+  /// Whether liff.getAid() is available in the environment in which the LIFF app was launched.
+  ///
+  /// **Note that we currently don't provide liff.getAid().**
   @override
   final Availability getAdvertisingId;
+
+  /// Whether liff.addToHomeScreen() is available in the environment in which the LIFF app was launched.
+  ///
+  /// **Note that we currently don't provide liff.addToHomeScreen().**
   @override
   final Availability addToHomeScreen;
+
+  /// Whether Bluetooth® Low Energy for LINE Things is available in the environment in which the LIFF app was launched.
+  ///
+  /// **Note that we currently don't provide this feature.**
   @override
   final Availability bluetoothLeFunction;
+
+  /// Whether the "Channel consent simplification" feature is available in the environment in which the LIFF app was launched.
   @override
   final Availability skipChannelVerificationScreen;
 
+  /// Whether liff.createShortcutOnHomeScreen() is available in the environment in which the LIFF app was launched.
+  @override
+  final Availability addToHomeV2;
+
+  /// Whether the endpoint URL can be hidden when displaying a screen for adding a shortcut to the home screen of the user's device.
+  ///
+  /// **Note that we currently don't provide this feature.**
+  @override
+  final Availability addToHomeHideDomain;
+
+  /// Whether creating a shortcut specifying the LINE URL scheme is available.
+  ///
+  /// **Note that we currently don't provide this feature.**
+  @override
+  final Availability addToHomeLineScheme;
+
   @override
   String toString() {
-    return 'Availabilities(shareTargetPicker: $shareTargetPicker, multipleLiffTransition: $multipleLiffTransition, subwindowOpen: $subwindowOpen, scanCode: $scanCode, scanCodeV2: $scanCodeV2, getAdvertisingId: $getAdvertisingId, addToHomeScreen: $addToHomeScreen, bluetoothLeFunction: $bluetoothLeFunction, skipChannelVerificationScreen: $skipChannelVerificationScreen)';
+    return 'Availabilities(shareTargetPicker: $shareTargetPicker, multipleLiffTransition: $multipleLiffTransition, subwindowOpen: $subwindowOpen, scanCode: $scanCode, scanCodeV2: $scanCodeV2, getAdvertisingId: $getAdvertisingId, addToHomeScreen: $addToHomeScreen, bluetoothLeFunction: $bluetoothLeFunction, skipChannelVerificationScreen: $skipChannelVerificationScreen, addToHomeV2: $addToHomeV2, addToHomeHideDomain: $addToHomeHideDomain, addToHomeLineScheme: $addToHomeLineScheme)';
   }
 
   @override
@@ -385,7 +540,13 @@ class _$AvailabilitiesImpl implements _Availabilities {
             (identical(other.skipChannelVerificationScreen,
                     skipChannelVerificationScreen) ||
                 other.skipChannelVerificationScreen ==
-                    skipChannelVerificationScreen));
+                    skipChannelVerificationScreen) &&
+            (identical(other.addToHomeV2, addToHomeV2) ||
+                other.addToHomeV2 == addToHomeV2) &&
+            (identical(other.addToHomeHideDomain, addToHomeHideDomain) ||
+                other.addToHomeHideDomain == addToHomeHideDomain) &&
+            (identical(other.addToHomeLineScheme, addToHomeLineScheme) ||
+                other.addToHomeLineScheme == addToHomeLineScheme));
   }
 
   @override
@@ -399,7 +560,10 @@ class _$AvailabilitiesImpl implements _Availabilities {
       getAdvertisingId,
       addToHomeScreen,
       bluetoothLeFunction,
-      skipChannelVerificationScreen);
+      skipChannelVerificationScreen,
+      addToHomeV2,
+      addToHomeHideDomain,
+      addToHomeLineScheme);
 
   /// Create a copy of Availabilities
   /// with the given fields replaced by the non-null parameter values.
@@ -413,35 +577,77 @@ class _$AvailabilitiesImpl implements _Availabilities {
 
 abstract class _Availabilities implements Availabilities {
   const factory _Availabilities(
-          {required final Availability shareTargetPicker,
-          required final Availability multipleLiffTransition,
-          required final Availability subwindowOpen,
-          required final Availability scanCode,
-          required final Availability scanCodeV2,
-          required final Availability getAdvertisingId,
-          required final Availability addToHomeScreen,
-          required final Availability bluetoothLeFunction,
-          required final Availability skipChannelVerificationScreen}) =
-      _$AvailabilitiesImpl;
+      {required final Availability shareTargetPicker,
+      required final Availability multipleLiffTransition,
+      required final Availability subwindowOpen,
+      required final Availability scanCode,
+      required final Availability scanCodeV2,
+      required final Availability getAdvertisingId,
+      required final Availability addToHomeScreen,
+      required final Availability bluetoothLeFunction,
+      required final Availability skipChannelVerificationScreen,
+      required final Availability addToHomeV2,
+      required final Availability addToHomeHideDomain,
+      required final Availability addToHomeLineScheme}) = _$AvailabilitiesImpl;
 
+  /// Whether liff.shareTargetPicker() is available in the environment in which the LIFF app was launched.
   @override
   Availability get shareTargetPicker;
+
+  /// Whether it's possible to transition to another LIFF app with liff.openWindow()
+  /// without closing the LIFF app within the LIFF browser in the environment in which the LIFF app was launched.
   @override
   Availability get multipleLiffTransition;
+
+  /// Whether the subwindow is available in the environment in which the LIFF app was launched.
   @override
   Availability get subwindowOpen;
+
+  /// Whether liff.scanCode() is available in the environment in which the LIFF app was launched.
   @override
   Availability get scanCode;
+
+  /// Whether liff.scanCodeV2() is available in the environment in which the LIFF app was launched.
   @override
   Availability get scanCodeV2;
+
+  /// Whether liff.getAid() is available in the environment in which the LIFF app was launched.
+  ///
+  /// **Note that we currently don't provide liff.getAid().**
   @override
   Availability get getAdvertisingId;
+
+  /// Whether liff.addToHomeScreen() is available in the environment in which the LIFF app was launched.
+  ///
+  /// **Note that we currently don't provide liff.addToHomeScreen().**
   @override
   Availability get addToHomeScreen;
+
+  /// Whether Bluetooth® Low Energy for LINE Things is available in the environment in which the LIFF app was launched.
+  ///
+  /// **Note that we currently don't provide this feature.**
   @override
   Availability get bluetoothLeFunction;
+
+  /// Whether the "Channel consent simplification" feature is available in the environment in which the LIFF app was launched.
   @override
   Availability get skipChannelVerificationScreen;
+
+  /// Whether liff.createShortcutOnHomeScreen() is available in the environment in which the LIFF app was launched.
+  @override
+  Availability get addToHomeV2;
+
+  /// Whether the endpoint URL can be hidden when displaying a screen for adding a shortcut to the home screen of the user's device.
+  ///
+  /// **Note that we currently don't provide this feature.**
+  @override
+  Availability get addToHomeHideDomain;
+
+  /// Whether creating a shortcut specifying the LINE URL scheme is available.
+  ///
+  /// **Note that we currently don't provide this feature.**
+  @override
+  Availability get addToHomeLineScheme;
 
   /// Create a copy of Availabilities
   /// with the given fields replaced by the non-null parameter values.
@@ -453,10 +659,29 @@ abstract class _Availabilities implements Availabilities {
 
 /// @nodoc
 mixin _$Availability {
+  /// Specifies whether the feature specified by the property name of the availability object is available in the environment in which the LIFF app was launched.
+  ///
+  /// - true: The feature is available.
+  /// - false: The feature isn't available.
   bool get permission => throw _privateConstructorUsedError;
-  String get minVer => throw _privateConstructorUsedError;
-  String? get minOsVer => throw _privateConstructorUsedError;
+
+  /// The minimum LINE version that supports the corresponding feature.
+  String? get minVer => throw _privateConstructorUsedError;
+
+  /// The maximum LINE version that supports the corresponding feature.
+  String? get maxVer => throw _privateConstructorUsedError;
+
+  /// The LINE version for which the corresponding feature is no longer supported.
   String? get unsupportedFromVer => throw _privateConstructorUsedError;
+
+  /// The minimum OS version that supports the corresponding feature.
+  String? get minOsVer => throw _privateConstructorUsedError;
+
+  /// The maximum OS version that supports the corresponding feature.
+  String? get maxOsVer => throw _privateConstructorUsedError;
+
+  /// The OS version for which the corresponding feature is no longer supported.
+  String? get unsupportedFromOsVer => throw _privateConstructorUsedError;
 
   /// Create a copy of Availability
   /// with the given fields replaced by the non-null parameter values.
@@ -473,9 +698,12 @@ abstract class $AvailabilityCopyWith<$Res> {
   @useResult
   $Res call(
       {bool permission,
-      String minVer,
+      String? minVer,
+      String? maxVer,
+      String? unsupportedFromVer,
       String? minOsVer,
-      String? unsupportedFromVer});
+      String? maxOsVer,
+      String? unsupportedFromOsVer});
 }
 
 /// @nodoc
@@ -494,26 +722,41 @@ class _$AvailabilityCopyWithImpl<$Res, $Val extends Availability>
   @override
   $Res call({
     Object? permission = null,
-    Object? minVer = null,
-    Object? minOsVer = freezed,
+    Object? minVer = freezed,
+    Object? maxVer = freezed,
     Object? unsupportedFromVer = freezed,
+    Object? minOsVer = freezed,
+    Object? maxOsVer = freezed,
+    Object? unsupportedFromOsVer = freezed,
   }) {
     return _then(_value.copyWith(
       permission: null == permission
           ? _value.permission
           : permission // ignore: cast_nullable_to_non_nullable
               as bool,
-      minVer: null == minVer
+      minVer: freezed == minVer
           ? _value.minVer
           : minVer // ignore: cast_nullable_to_non_nullable
-              as String,
-      minOsVer: freezed == minOsVer
-          ? _value.minOsVer
-          : minOsVer // ignore: cast_nullable_to_non_nullable
+              as String?,
+      maxVer: freezed == maxVer
+          ? _value.maxVer
+          : maxVer // ignore: cast_nullable_to_non_nullable
               as String?,
       unsupportedFromVer: freezed == unsupportedFromVer
           ? _value.unsupportedFromVer
           : unsupportedFromVer // ignore: cast_nullable_to_non_nullable
+              as String?,
+      minOsVer: freezed == minOsVer
+          ? _value.minOsVer
+          : minOsVer // ignore: cast_nullable_to_non_nullable
+              as String?,
+      maxOsVer: freezed == maxOsVer
+          ? _value.maxOsVer
+          : maxOsVer // ignore: cast_nullable_to_non_nullable
+              as String?,
+      unsupportedFromOsVer: freezed == unsupportedFromOsVer
+          ? _value.unsupportedFromOsVer
+          : unsupportedFromOsVer // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -529,9 +772,12 @@ abstract class _$$AvailabilityImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool permission,
-      String minVer,
+      String? minVer,
+      String? maxVer,
+      String? unsupportedFromVer,
       String? minOsVer,
-      String? unsupportedFromVer});
+      String? maxOsVer,
+      String? unsupportedFromOsVer});
 }
 
 /// @nodoc
@@ -548,26 +794,41 @@ class __$$AvailabilityImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? permission = null,
-    Object? minVer = null,
-    Object? minOsVer = freezed,
+    Object? minVer = freezed,
+    Object? maxVer = freezed,
     Object? unsupportedFromVer = freezed,
+    Object? minOsVer = freezed,
+    Object? maxOsVer = freezed,
+    Object? unsupportedFromOsVer = freezed,
   }) {
     return _then(_$AvailabilityImpl(
       permission: null == permission
           ? _value.permission
           : permission // ignore: cast_nullable_to_non_nullable
               as bool,
-      minVer: null == minVer
+      minVer: freezed == minVer
           ? _value.minVer
           : minVer // ignore: cast_nullable_to_non_nullable
-              as String,
-      minOsVer: freezed == minOsVer
-          ? _value.minOsVer
-          : minOsVer // ignore: cast_nullable_to_non_nullable
+              as String?,
+      maxVer: freezed == maxVer
+          ? _value.maxVer
+          : maxVer // ignore: cast_nullable_to_non_nullable
               as String?,
       unsupportedFromVer: freezed == unsupportedFromVer
           ? _value.unsupportedFromVer
           : unsupportedFromVer // ignore: cast_nullable_to_non_nullable
+              as String?,
+      minOsVer: freezed == minOsVer
+          ? _value.minOsVer
+          : minOsVer // ignore: cast_nullable_to_non_nullable
+              as String?,
+      maxOsVer: freezed == maxOsVer
+          ? _value.maxOsVer
+          : maxOsVer // ignore: cast_nullable_to_non_nullable
+              as String?,
+      unsupportedFromOsVer: freezed == unsupportedFromOsVer
+          ? _value.unsupportedFromOsVer
+          : unsupportedFromOsVer // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -578,22 +839,47 @@ class __$$AvailabilityImplCopyWithImpl<$Res>
 class _$AvailabilityImpl implements _Availability {
   const _$AvailabilityImpl(
       {required this.permission,
-      required this.minVer,
+      this.minVer,
+      this.maxVer,
+      this.unsupportedFromVer,
       this.minOsVer,
-      this.unsupportedFromVer});
+      this.maxOsVer,
+      this.unsupportedFromOsVer});
 
+  /// Specifies whether the feature specified by the property name of the availability object is available in the environment in which the LIFF app was launched.
+  ///
+  /// - true: The feature is available.
+  /// - false: The feature isn't available.
   @override
   final bool permission;
+
+  /// The minimum LINE version that supports the corresponding feature.
   @override
-  final String minVer;
+  final String? minVer;
+
+  /// The maximum LINE version that supports the corresponding feature.
   @override
-  final String? minOsVer;
+  final String? maxVer;
+
+  /// The LINE version for which the corresponding feature is no longer supported.
   @override
   final String? unsupportedFromVer;
 
+  /// The minimum OS version that supports the corresponding feature.
+  @override
+  final String? minOsVer;
+
+  /// The maximum OS version that supports the corresponding feature.
+  @override
+  final String? maxOsVer;
+
+  /// The OS version for which the corresponding feature is no longer supported.
+  @override
+  final String? unsupportedFromOsVer;
+
   @override
   String toString() {
-    return 'Availability(permission: $permission, minVer: $minVer, minOsVer: $minOsVer, unsupportedFromVer: $unsupportedFromVer)';
+    return 'Availability(permission: $permission, minVer: $minVer, maxVer: $maxVer, unsupportedFromVer: $unsupportedFromVer, minOsVer: $minOsVer, maxOsVer: $maxOsVer, unsupportedFromOsVer: $unsupportedFromOsVer)';
   }
 
   @override
@@ -604,15 +890,20 @@ class _$AvailabilityImpl implements _Availability {
             (identical(other.permission, permission) ||
                 other.permission == permission) &&
             (identical(other.minVer, minVer) || other.minVer == minVer) &&
+            (identical(other.maxVer, maxVer) || other.maxVer == maxVer) &&
+            (identical(other.unsupportedFromVer, unsupportedFromVer) ||
+                other.unsupportedFromVer == unsupportedFromVer) &&
             (identical(other.minOsVer, minOsVer) ||
                 other.minOsVer == minOsVer) &&
-            (identical(other.unsupportedFromVer, unsupportedFromVer) ||
-                other.unsupportedFromVer == unsupportedFromVer));
+            (identical(other.maxOsVer, maxOsVer) ||
+                other.maxOsVer == maxOsVer) &&
+            (identical(other.unsupportedFromOsVer, unsupportedFromOsVer) ||
+                other.unsupportedFromOsVer == unsupportedFromOsVer));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, permission, minVer, minOsVer, unsupportedFromVer);
+  int get hashCode => Object.hash(runtimeType, permission, minVer, maxVer,
+      unsupportedFromVer, minOsVer, maxOsVer, unsupportedFromOsVer);
 
   /// Create a copy of Availability
   /// with the given fields replaced by the non-null parameter values.
@@ -626,18 +917,43 @@ class _$AvailabilityImpl implements _Availability {
 abstract class _Availability implements Availability {
   const factory _Availability(
       {required final bool permission,
-      required final String minVer,
+      final String? minVer,
+      final String? maxVer,
+      final String? unsupportedFromVer,
       final String? minOsVer,
-      final String? unsupportedFromVer}) = _$AvailabilityImpl;
+      final String? maxOsVer,
+      final String? unsupportedFromOsVer}) = _$AvailabilityImpl;
 
+  /// Specifies whether the feature specified by the property name of the availability object is available in the environment in which the LIFF app was launched.
+  ///
+  /// - true: The feature is available.
+  /// - false: The feature isn't available.
   @override
   bool get permission;
+
+  /// The minimum LINE version that supports the corresponding feature.
   @override
-  String get minVer;
+  String? get minVer;
+
+  /// The maximum LINE version that supports the corresponding feature.
   @override
-  String? get minOsVer;
+  String? get maxVer;
+
+  /// The LINE version for which the corresponding feature is no longer supported.
   @override
   String? get unsupportedFromVer;
+
+  /// The minimum OS version that supports the corresponding feature.
+  @override
+  String? get minOsVer;
+
+  /// The maximum OS version that supports the corresponding feature.
+  @override
+  String? get maxOsVer;
+
+  /// The OS version for which the corresponding feature is no longer supported.
+  @override
+  String? get unsupportedFromOsVer;
 
   /// Create a copy of Availability
   /// with the given fields replaced by the non-null parameter values.

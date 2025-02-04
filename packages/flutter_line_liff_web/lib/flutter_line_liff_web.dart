@@ -5,20 +5,21 @@ import 'dart:js_interop';
 import 'dart:js_util';
 
 import 'package:flutter_line_liff_platform_interface/flutter_line_liff_platform_interface.dart';
-
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
-import 'src/mapper/mapper.dart';
 import 'src/js/js.dart' as js;
+import 'src/mapper/mapper.dart';
 import 'src/permanent_link_web.dart';
 import 'src/permission_methods_web.dart';
 import 'src/utils.dart';
+import 'src/i18n_web.dart';
 
 export 'src/permanent_link_web.dart';
 export 'src/permission_methods_web.dart';
 
 final PermissionMethodsPlatform _permissionMethods = PermissionMethodsWeb();
 final PermanentLinkPlatform _permanentLink = PermanentLinkWeb();
+final I18nPlatform _i18n = I18nWeb();
 
 class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
   static void registerWith(Registrar? registrar) {
@@ -59,6 +60,9 @@ class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
 
   @override
   String? get os => js.liff.getOS()?.toDart;
+
+  @override
+  String get appLanguage => js.liff.getAppLanguage().toDart;
 
   @override
   String get language => js.liff.getLanguage().toDart;
@@ -187,4 +191,17 @@ class FlutterLineLiffPlugin extends FlutterLineLiffPlatform {
 
   @override
   PermanentLinkPlatform get permanentLink => _permanentLink;
+
+  @override
+  I18nPlatform get i18n => _i18n;
+
+  @override
+  Future<void> createShortcutOnHomeScreen({
+    required CreateShortcutOnHomeScreenParams params,
+  }) =>
+      js.liff
+          .createShortcutOnHomeScreen(params.toJS)
+          .toDart
+          .ignoreResult()
+          .handleLiffException();
 }

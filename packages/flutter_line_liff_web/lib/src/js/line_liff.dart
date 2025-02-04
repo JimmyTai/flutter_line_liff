@@ -4,7 +4,9 @@ import 'dart:js_interop';
 
 import 'config.dart';
 import 'context/context.dart';
+import 'create_shortcut_on_home_screen_params.dart';
 import 'friendship.dart';
+import 'i18n.dart';
 import 'jwt_payload.dart';
 import 'login_config.dart';
 import 'open_window_params.dart';
@@ -31,6 +33,8 @@ extension type JSLiff._(JSObject _) implements JSObject {
   ]);
 
   external JSString? getOS();
+
+  external JSString getAppLanguage();
 
   external JSString getLanguage();
 
@@ -78,4 +82,9 @@ extension type JSLiff._(JSObject _) implements JSObject {
   external JSPromise<JSScanCodeResult> scanCode();
 
   external JSPermanentLink get permanentLink;
+
+  external JSI18n get i18n;
+
+  external JSPromise<JSAny?> createShortcutOnHomeScreen(
+      JSCreateShortcutOnHomeScreenParams params);
 }

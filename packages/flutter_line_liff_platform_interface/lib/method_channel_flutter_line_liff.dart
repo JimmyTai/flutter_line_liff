@@ -19,6 +19,9 @@ class MethodChannelFlutterLineLiff extends FlutterLineLiffPlatform {
   String? get os => throw UnimplementedError();
 
   @override
+  String get appLanguage => throw UnimplementedError();
+
+  @override
   String get language => throw UnimplementedError();
 
   @override
@@ -103,4 +106,13 @@ class MethodChannelFlutterLineLiff extends FlutterLineLiffPlatform {
 
   @override
   PermanentLinkPlatform get permanentLink => throw UnimplementedError();
+
+  @override
+  I18nPlatform get i18n => throw UnimplementedError();
+
+  @override
+  Future<void> createShortcutOnHomeScreen({
+    required CreateShortcutOnHomeScreenParams params,
+  }) =>
+      throw UnimplementedError();
 }
